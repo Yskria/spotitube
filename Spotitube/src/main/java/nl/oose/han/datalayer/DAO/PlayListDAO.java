@@ -1,5 +1,6 @@
 package nl.oose.han.datalayer.DAO;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import nl.oose.han.datalayer.DTO.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
@@ -10,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+@ApplicationScoped
 public class PlayListDAO implements iDAO<PlayListDTO> {
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
@@ -21,7 +24,7 @@ public class PlayListDAO implements iDAO<PlayListDTO> {
         String query = "INSERT INTO playlist (name, owner) VALUES (?, ?)";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
-
+            System.out.println("Adding playlist: " + playlist.getName());
             stmt.setString(1, playlist.getName());
             stmt.setString(2, username);
             stmt.executeUpdate();
@@ -76,8 +79,13 @@ public class PlayListDAO implements iDAO<PlayListDTO> {
                 PlayListDTO playlist = new PlayListDTO();
                 playlist.setId(rs.getInt("id"));
                 playlist.setName(rs.getString("name"));
-                playlist.setOwner(rs.getString("owner").equals(username));
+                if(!Objects.equals(rs.getString("owner"), username)) {
+                    playlist.setOwner(false);
+                } else {
+                    playlist.setOwner(rs.getString("owner").equals(username));
+                }
                 return playlist;
+
             }
         } catch (Exception e) {
             e.printStackTrace();

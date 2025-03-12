@@ -1,28 +1,35 @@
 package nl.oose.han.services;
 
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import nl.oose.han.controllers.LoginController;
-import nl.oose.han.datalayer.DTO.UserDTO;
+import nl.oose.han.datalayer.DatabaseConnection;
 
-@Path("/login")
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 public class LoginService {
+    private final DatabaseConnection databaseConnection;
 
-    private final LoginController loginController = new LoginController();
+    public LoginService() {
+        this.databaseConnection = new DatabaseConnection();
+    }
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response login(UserDTO user) {
-        boolean isValid = loginController.validateUser(user.getUsername(), user.getPassword());
+    public boolean validateUser(String username, String password) {
+        String query = "SELECT username, password FROM users WHERE username = ? AND password = ?";
 
-        if (isValid) {
-            return Response.ok("{\"message\":\"Login successful\"}").build();
-        } else {
-            return Response.status(Response.Status.UNAUTHORIZED)
-                    .entity("{\"error\":\"Invalid username or password\"}")
-                    .build();
+        try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return true;  // Returns true if user exists
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return false;
     }
 }

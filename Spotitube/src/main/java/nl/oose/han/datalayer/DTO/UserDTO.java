@@ -1,26 +1,19 @@
 package nl.oose.han.datalayer.DTO;
 
-
 public class UserDTO {
-    private String username;
+    private String user;
     private String password;
 
-    // Constructors
-    public UserDTO() {
+    // Default constructor
+    public UserDTO() {}
+
+    // Getters and setters
+    public String getUser() {
+        return user;
     }
 
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    // Getters and Setters
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getPassword() {

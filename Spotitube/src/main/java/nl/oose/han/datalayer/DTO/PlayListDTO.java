@@ -8,7 +8,6 @@ public class PlayListDTO {
     private boolean owner;
     private List<String> tracks;
 
-    // Getters and setters
     public int getId() {
         return id;
     }

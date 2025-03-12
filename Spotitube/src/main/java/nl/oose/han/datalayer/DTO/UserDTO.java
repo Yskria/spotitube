@@ -4,10 +4,8 @@ public class UserDTO {
     private String user;
     private String password;
 
-    // Default constructor
     public UserDTO() {}
 
-    // Getters and setters
     public String getUser() {
         return user;
     }

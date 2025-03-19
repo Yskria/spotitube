@@ -24,9 +24,7 @@ public class LoginService {
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
-                return true;  // Returns true if user exists
-            }
+            return rs.next();
         } catch (Exception e) {
             e.printStackTrace();
         }

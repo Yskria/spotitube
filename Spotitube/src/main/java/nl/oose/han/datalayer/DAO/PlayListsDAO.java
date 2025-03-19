@@ -2,9 +2,8 @@ package nl.oose.han.datalayer.DAO;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.PlayLists;
 import nl.oose.han.datalayer.DTO.PlayListDTO;
-import nl.oose.han.datalayer.DTO.TracksDTO;
+import nl.oose.han.datalayer.DTO.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
@@ -79,7 +78,7 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                List<TracksDTO> tracks = playListDAO.getAllSongsInPlaylist(id, token);
+                List<TrackDTO> tracks = playListDAO.getAllSongsInPlaylist(id, token);
                 resultList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), tracks));
             }
         } catch (SQLException e) {

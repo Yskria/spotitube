@@ -3,10 +3,9 @@ package nl.oose.han.services;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.PlayLists;
-import nl.oose.han.datalayer.DAO.PlayListsDAO;
 import nl.oose.han.datalayer.DAO.iDAO;
 import nl.oose.han.datalayer.DTO.PlayListDTO;
-import nl.oose.han.datalayer.DTO.TracksDTO;
+import nl.oose.han.datalayer.DTO.TrackDTO;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class PlayListService {
         List<PlayListDTO> playlists = playListDAO.getAll(token);
         int totalLength = playlists.stream()
                 .flatMap(playlist -> playlist.getTracks().stream())
-                .mapToInt(TracksDTO::getDuration)
+                .mapToInt(TrackDTO::getDuration)
                 .sum();
         return new PlayLists(playlists, totalLength);
     }

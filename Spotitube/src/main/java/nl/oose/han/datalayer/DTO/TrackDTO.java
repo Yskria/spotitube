@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.DTO;
 
-public class TracksDTO {
+public class TrackDTO {
     private int id;
     private String title;
     private String performer;
@@ -11,7 +11,7 @@ public class TracksDTO {
     private String description;
     private boolean offlineAvailable;
 
-    public TracksDTO(int id, String title, String performer, int duration, String album, int playcount, String publicationDate, String description, boolean offlineAvailable) {
+    public TrackDTO(int id, String title, String performer, int duration, String album, int playcount, String publicationDate, String description, boolean offlineAvailable) {
         this.id = id;
         this.title = title;
         this.performer = performer;
@@ -23,7 +23,8 @@ public class TracksDTO {
         this.offlineAvailable = offlineAvailable;
     }
 
-    public TracksDTO() {
+    public TrackDTO() {
+
     }
 
     public int getId() {

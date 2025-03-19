@@ -1,22 +1,24 @@
 package nl.oose.han.datalayer.DAO;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
+import nl.oose.han.PlayLists;
 import nl.oose.han.datalayer.DTO.PlayListDTO;
+import nl.oose.han.datalayer.DTO.TracksDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @ApplicationScoped
 public class PlayListsDAO implements iDAO<PlayListDTO> {
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
+
+    @Inject
+    private PlayListDAO playListDAO;
 
     @Override
     public void add(PlayListDTO playlist, String token) {
@@ -65,55 +67,24 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
     }
 
     @Override
-    public PlayListDTO get(int id, String token) {
-        String username = tokenUtil.getUsernameFromToken(token);
-        String query = "SELECT * FROM playlist WHERE id = ? AND owner = ?";
-        try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setInt(1, id);
-            stmt.setString(2, username);
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                PlayListDTO playlist = new PlayListDTO();
-                playlist.setId(rs.getInt("id"));
-                playlist.setName(rs.getString("name"));
-                if(!Objects.equals(rs.getString("owner"), username)) {
-                    playlist.setOwner(false);
-                } else {
-                    playlist.setOwner(rs.getString("owner").equals(username));
-                }
-                return playlist;
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
     public List<PlayListDTO> getAll(String token) {
+        List<PlayListDTO> resultList = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
-        List<PlayListDTO> playlists = new ArrayList<>();
         String query = "SELECT * FROM playlist WHERE owner = ?";
-        try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-
+        try (
+                Connection con = DriverManager.getConnection(databaseConnection.connectionString());
+                PreparedStatement preparedStatement = con.prepareStatement(query)
+        ) {
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                PlayListDTO playlist = new PlayListDTO();
-                playlist.setId(rs.getInt("id"));
-                playlist.setName(rs.getString("name"));
-                playlist.setOwner(rs.getString("owner").equals(username));
-                playlists.add(playlist);
+                int id = rs.getInt("id");
+                List<TracksDTO> tracks = playListDAO.getAllSongsInPlaylist(id, token);
+                resultList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), tracks));
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return playlists;
+        return resultList;
     }
 }

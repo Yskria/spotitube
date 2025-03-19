@@ -1,13 +1,13 @@
-package nl.oose.han;
+package nl.oose.han.datalayer.DTO;
 
-public class TrackInPlaylist {
+public class TrackInPlaylistDTO {
     private int trackId;
     private int playlistId;
 
-    public TrackInPlaylist() {
+    public TrackInPlaylistDTO() {
     }
 
-    public TrackInPlaylist(int trackId, int playlistId) {
+    public TrackInPlaylistDTO(int trackId, int playlistId) {
         this.trackId = trackId;
         this.playlistId = playlistId;
     }

@@ -12,11 +12,19 @@ public class PlayLists {
         this.length = length;
     }
 
+    public PlayLists() {
+
+    }
+
     public List<PlayListDTO> getPlaylists() {
         return playlists;
     }
 
     public int getLength() {
         return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }

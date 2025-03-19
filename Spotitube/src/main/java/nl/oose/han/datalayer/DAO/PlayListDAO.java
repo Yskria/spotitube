@@ -1,7 +1,8 @@
 package nl.oose.han.datalayer.DAO;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import nl.oose.han.Track;
+import nl.oose.han.PlayLists;
+import nl.oose.han.datalayer.DTO.TracksDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
@@ -18,8 +19,8 @@ public class PlayListDAO implements iDAO {
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
 
-    public List<Track> getAllSongsInPlaylist(int playlistId, String token) {
-        List<Track> tracks = new ArrayList<>();
+    public List<TracksDTO> getAllSongsInPlaylist(int playlistId, String token) {
+        List<TracksDTO> tracks = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
         String query = "SELECT * " +
                 "FROM track t " +
@@ -34,7 +35,7 @@ public class PlayListDAO implements iDAO {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Track track = new Track();
+                TracksDTO track = new TracksDTO();
                 track.setId(rs.getInt("id"));
                 track.setTitle(rs.getString("title"));
                 track.setPerformer(rs.getString("performer"));
@@ -63,11 +64,6 @@ public class PlayListDAO implements iDAO {
 
     @Override
     public void delete(int id, String token) {
-    }
-
-    @Override
-    public Object get(int id, String token) {
-        return null;
     }
 
     @Override

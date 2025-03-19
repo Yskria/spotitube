@@ -10,6 +10,7 @@ import nl.oose.han.datalayer.DTO.UserDTO;
 import nl.oose.han.services.PlayListService;
 
 import java.util.List;
+import java.util.Objects;
 
 import static jakarta.ws.rs.core.Response.status;
 
@@ -37,13 +38,19 @@ public class PlayListResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPlaylists(@QueryParam("token") String token) {
-        return Response.ok(playlistService.getPlaylists(token)).build();
+        System.out.println(token);
+        if(Objects.equals(token, "1234-1234-1234")) {
+            return Response.ok(playlistService.getPlaylists(token)).build();
+        }
+        else{
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }
     }
 
     @DELETE
     @Path("/{id}")
     public Response deletePlaylist(@QueryParam("token") String token, @PathParam("id") int id) {
-        return Response.ok(playlistService.deletePlayList(id,token)).build();
+        return Response.ok(playlistService.deletePlayList(id, token)).build();
     }
 
     @PUT

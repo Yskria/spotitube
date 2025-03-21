@@ -13,7 +13,10 @@ import java.util.List;
 public class PlayListService {
 
     @Inject
-    private iDAO<PlayListDTO> playListDAO;
+    iDAO<PlayListDTO> playListDAO;
+
+    public PlayListService() {
+    }
 
     public PlayLists getPlaylists(String token) {
         List<PlayListDTO> playlists = playListDAO.getAll(token);

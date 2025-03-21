@@ -17,8 +17,16 @@ import static jakarta.ws.rs.core.Response.status;
 @Path("/playlists")
 public class PlayListResource {
 
-    @Inject
     private PlayListService playlistService;
+
+    @Inject
+    public PlayListResource(PlayListService playlistService) {
+        this.playlistService = playlistService;
+    }
+
+    public PlayListResource() {
+        this.playlistService = new PlayListService();
+    }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

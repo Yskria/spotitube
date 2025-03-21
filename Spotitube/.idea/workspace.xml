@@ -10,16 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="957dc666-2d72-43e7-ab6a-d945d00eb465" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/Track.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/TrackInPlaylist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/PlayListsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/resources/TrackInPlaylistResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackInPlaylistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/LoginDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/mappers/LoginMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e008d9d9-5601-4228-a570-6f4360e1f95b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e008d9d9-5601-4228-a570-6f4360e1f95b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/PlayListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/PlayListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DTO/PlayListDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DTO/PlayListDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DTO/TracksDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DTO/TracksDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/PlayListService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/PlayListService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/PlayListsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DAO/PlayListsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/resources/LoginResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/resources/LoginResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,38 +50,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/laure/OneDrive/Documenten/GitHub/spotitube/Spotitube/target/Spotitube-1.0.war",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="JBoss/WildFly 25.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Spotitube-1.0/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="Spotitube:war">
+        <file path="$PROJECT_DIR$/target/Spotitube-1.0.war">
           <settings />
-        </artifact>
+        </file>
       </deployment>
       <server-settings>
         <option name="SERVER" />
@@ -140,9 +144,7 @@
       </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="Spotitube:war" />
-        </option>
+        <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
   </component>

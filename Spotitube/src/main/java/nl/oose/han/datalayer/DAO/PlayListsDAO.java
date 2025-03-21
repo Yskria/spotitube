@@ -69,12 +69,11 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
     public List<PlayListDTO> getAll(String token) {
         List<PlayListDTO> resultList = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
-        String query = "SELECT * FROM playlist WHERE owner = ?";
+        String query = "SELECT * FROM playlist";
         try (
                 Connection con = DriverManager.getConnection(databaseConnection.connectionString());
                 PreparedStatement preparedStatement = con.prepareStatement(query)
         ) {
-            preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

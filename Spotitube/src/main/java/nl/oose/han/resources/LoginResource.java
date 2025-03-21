@@ -1,5 +1,6 @@
 package nl.oose.han.resources;
 
+import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
@@ -10,7 +11,8 @@ import nl.oose.han.datalayer.DTO.UserDTO;
 @Path("/login")
 public class LoginResource {
 
-    private final LoginService loginService = new LoginService();
+    @Inject
+    private LoginService loginService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

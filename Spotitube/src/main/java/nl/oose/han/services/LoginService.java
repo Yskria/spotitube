@@ -1,5 +1,8 @@
 package nl.oose.han.services;
 
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
+import nl.oose.han.datalayer.DAO.LoginDAO;
 import nl.oose.han.datalayer.DatabaseConnection;
 
 import java.sql.Connection;
@@ -7,27 +10,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+@RequestScoped
 public class LoginService {
-    private final DatabaseConnection databaseConnection;
 
-    public LoginService() {
-        this.databaseConnection = new DatabaseConnection();
-    }
+    @Inject
+    private LoginDAO loginDAO;
 
     public boolean validateUser(String username, String password) {
-        String query = "SELECT username, password FROM users WHERE username = ? AND password = ?";
-
-        try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-            ResultSet rs = stmt.executeQuery();
-
-            return rs.next();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+        System.out.println(username + " " + password);
+        return loginDAO.validateUser(username, password);
     }
 }

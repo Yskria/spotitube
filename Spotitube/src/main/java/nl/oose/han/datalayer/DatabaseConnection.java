@@ -1,5 +1,7 @@
 package nl.oose.han.datalayer;
 
+import jakarta.enterprise.context.RequestScoped;
+
 import java.io.IOException;
 import java.util.Properties;
 import java.util.logging.Level;

@@ -26,11 +26,10 @@ public class PlayListDAO implements iDAO {
                 "JOIN track_in_playlist tip ON t.id = tip.track_id " +
                 "JOIN playlist p ON p.id = tip.playlist_id " +
                 "JOIN users u ON u.username = p.owner " +
-                "WHERE tip.playlist_id = ? AND u.username = ?";
+                "WHERE tip.playlist_id = ?";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, playlistId);
-            stmt.setString(2, username);
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

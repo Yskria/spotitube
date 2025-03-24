@@ -1,15 +1,12 @@
 package nl.oose.han.resources;
 
 import jakarta.inject.Inject;
-import jakarta.persistence.PostUpdate;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import nl.oose.han.datalayer.DTO.PlayListDTO;
-import nl.oose.han.datalayer.DTO.UserDTO;
+import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.services.PlayListService;
 
-import java.util.List;
 import java.util.Objects;
 
 import static jakarta.ws.rs.core.Response.status;

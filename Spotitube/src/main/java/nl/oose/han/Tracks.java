@@ -1,6 +1,6 @@
 package nl.oose.han;
 
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 
 import java.util.List;
 

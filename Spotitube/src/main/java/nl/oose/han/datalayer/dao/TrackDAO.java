@@ -1,8 +1,9 @@
-package nl.oose.han.datalayer.DAO;
+package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
+import nl.oose.han.datalayer.mappers.TrackMapper;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
 import java.sql.Connection;
@@ -17,6 +18,7 @@ public class TrackDAO implements iDAO<TrackDTO> {
 
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
+    private final TrackMapper trackMapper = new TrackMapper();
 
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
         List<TrackDTO> tracks = new ArrayList<>();
@@ -32,22 +34,7 @@ public class TrackDAO implements iDAO<TrackDTO> {
             stmt.setInt(1, playlistID);
             stmt.setString(2, username);
             ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-
-                TrackDTO track = new TrackDTO();
-                track.setId(rs.getInt("id"));
-                track.setTitle(rs.getString("title"));
-                track.setPerformer(rs.getString("performer"));
-                track.setDuration(rs.getInt("duration"));
-                track.setAlbum(rs.getString("album"));
-                track.setPlaycount(rs.getInt("playcount"));
-                java.sql.Date publicationDate = rs.getDate("publicationDate");
-                track.setPublicationDate(publicationDate != null ? publicationDate.toString() : null);
-                track.setDescription(rs.getString("description"));
-                track.setOfflineAvailable(rs.getBoolean("offlineAvailable"));
-                tracks.add(track);
-            }
+            tracks = trackMapper.getAllSongsInPlaylist(rs);
         }
         catch (Exception e) {
             e.printStackTrace();

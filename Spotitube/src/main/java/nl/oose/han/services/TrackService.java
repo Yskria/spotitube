@@ -1,10 +1,9 @@
 package nl.oose.han.services;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.Tracks;
-import nl.oose.han.datalayer.DAO.TrackDAO;
+import nl.oose.han.datalayer.dao.TrackDAO;
 
 @RequestScoped
 public class TrackService {

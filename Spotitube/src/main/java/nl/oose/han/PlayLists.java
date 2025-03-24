@@ -1,5 +1,5 @@
 package nl.oose.han;
-import nl.oose.han.datalayer.DTO.PlayListDTO;
+import nl.oose.han.datalayer.dto.PlayListDTO;
 
 import java.util.List;
 

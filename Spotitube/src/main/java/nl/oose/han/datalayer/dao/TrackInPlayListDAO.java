@@ -1,7 +1,7 @@
-package nl.oose.han.datalayer.DAO;
+package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 

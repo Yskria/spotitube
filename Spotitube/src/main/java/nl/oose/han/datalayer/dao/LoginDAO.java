@@ -1,4 +1,4 @@
-package nl.oose.han.datalayer.DAO;
+package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.RequestScoped;
 import nl.oose.han.datalayer.DatabaseConnection;

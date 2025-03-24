@@ -2,13 +2,7 @@ package nl.oose.han.services;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.datalayer.DAO.LoginDAO;
-import nl.oose.han.datalayer.DatabaseConnection;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import nl.oose.han.datalayer.dao.LoginDAO;
 
 @RequestScoped
 public class LoginService {
@@ -17,7 +11,6 @@ public class LoginService {
     private LoginDAO loginDAO;
 
     public boolean validateUser(String username, String password) {
-        System.out.println(username + " " + password);
         return loginDAO.validateUser(username, password);
     }
 }

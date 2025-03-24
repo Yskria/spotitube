@@ -3,9 +3,9 @@ package nl.oose.han.services;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.PlayLists;
-import nl.oose.han.datalayer.DAO.iDAO;
-import nl.oose.han.datalayer.DTO.PlayListDTO;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dao.iDAO;
+import nl.oose.han.datalayer.dto.PlayListDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 
 import java.util.List;
 

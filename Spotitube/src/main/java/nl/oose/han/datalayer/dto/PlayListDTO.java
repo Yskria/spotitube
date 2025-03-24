@@ -1,4 +1,4 @@
-package nl.oose.han.datalayer.DTO;
+package nl.oose.han.datalayer.dto;
 
 import java.util.List;
 

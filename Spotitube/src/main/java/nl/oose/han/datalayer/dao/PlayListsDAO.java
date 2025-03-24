@@ -1,9 +1,9 @@
-package nl.oose.han.datalayer.DAO;
+package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.datalayer.DTO.PlayListDTO;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dto.PlayListDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
@@ -25,7 +25,6 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
         String query = "INSERT INTO playlist (name, owner) VALUES (?, ?)";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
-            System.out.println("Adding playlist: " + playlist.getName());
             stmt.setString(1, playlist.getName());
             stmt.setString(2, username);
             stmt.executeUpdate();
@@ -67,7 +66,7 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
 
     @Override
     public List<PlayListDTO> getAll(String token) {
-        List<PlayListDTO> resultList = new ArrayList<>();
+        List<PlayListDTO> playListsList = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
         String query = "SELECT * FROM playlist";
         try (
@@ -78,11 +77,11 @@ public class PlayListsDAO implements iDAO<PlayListDTO> {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 List<TrackDTO> tracks = playListDAO.getAllSongsInPlaylist(id, token);
-                resultList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), tracks));
+                playListsList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), tracks));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return resultList;
+        return playListsList;
     }
 }

@@ -2,12 +2,10 @@ package nl.oose.han.services;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.Tracks;
-import nl.oose.han.datalayer.DAO.PlayListDAO;
-import nl.oose.han.datalayer.DAO.TrackInPlayListDAO;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dao.PlayListDAO;
+import nl.oose.han.datalayer.dao.TrackInPlayListDAO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 
-import javax.sound.midi.Track;
 import java.util.List;
 
 @RequestScoped

@@ -1,8 +1,9 @@
-package nl.oose.han.datalayer.DAO;
+package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import nl.oose.han.datalayer.DTO.TrackDTO;
+import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
+import nl.oose.han.datalayer.mappers.TrackMapper;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
 
 import java.sql.Connection;
@@ -17,10 +18,10 @@ public class PlayListDAO implements iDAO {
 
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
+    private final TrackMapper trackMapper = new TrackMapper();
 
     public List<TrackDTO> getAllSongsInPlaylist(int playlistId, String token) {
-        List<TrackDTO> tracks = new ArrayList<>();
-        String username = tokenUtil.getUsernameFromToken(token);
+        List<TrackDTO> tracks = null;
         String query = "SELECT * " +
                 "FROM track t " +
                 "JOIN track_in_playlist tip ON t.id = tip.track_id " +
@@ -31,21 +32,7 @@ public class PlayListDAO implements iDAO {
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, playlistId);
             ResultSet rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                TrackDTO track = new TrackDTO();
-                track.setId(rs.getInt("id"));
-                track.setTitle(rs.getString("title"));
-                track.setPerformer(rs.getString("performer"));
-                track.setDuration(rs.getInt("duration"));
-                track.setAlbum(rs.getString("album"));
-                track.setPlaycount(rs.getInt("playcount"));
-                java.sql.Date publicationDate = rs.getDate("publicationDate");
-                track.setPublicationDate(publicationDate != null ? publicationDate.toString() : null);
-                track.setDescription(rs.getString("description"));
-                track.setOfflineAvailable(rs.getBoolean("offlineAvailable"));
-                tracks.add(track);
-            }
+            tracks = trackMapper.getAllSongsInPlaylist(rs);
         } catch (Exception e) {
             e.printStackTrace();
         }

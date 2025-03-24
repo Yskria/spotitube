@@ -1,6 +1,7 @@
 package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Inject;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
 import nl.oose.han.datalayer.mappers.LoginMapper;
@@ -14,7 +15,9 @@ import java.sql.ResultSet;
 public class LoginDAO implements iLoginDAO {
 
     private final LoginMapper loginMapper = new LoginMapper();
-    private final DatabaseConnection databaseConnection;
+
+    @Inject
+    private DatabaseConnection databaseConnection;
 
     public LoginDAO() {
         this.databaseConnection = new DatabaseConnection();

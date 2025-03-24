@@ -14,7 +14,10 @@ import java.util.List;
 
 @ApplicationScoped
 public class PlayListsDAO implements iPlayListsDAO {
-    private final DatabaseConnection databaseConnection = new DatabaseConnection();
+
+    @Inject
+    private DatabaseConnection databaseConnection;
+
     private final TokenUtil tokenUtil = new TokenUtil();
 
     @Inject

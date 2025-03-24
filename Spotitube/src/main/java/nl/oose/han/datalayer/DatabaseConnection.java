@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@RequestScoped
 public class DatabaseConnection {
     private Logger logger = Logger.getLogger(getClass().getName());
     private Properties properties;

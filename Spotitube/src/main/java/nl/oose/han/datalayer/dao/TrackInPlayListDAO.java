@@ -1,6 +1,7 @@
 package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
@@ -12,7 +13,10 @@ import java.sql.PreparedStatement;
 
 @ApplicationScoped
 public class TrackInPlayListDAO implements iTrackInPLayListDAO {
-    private final DatabaseConnection databaseConnection = new DatabaseConnection();
+
+    @Inject
+    private DatabaseConnection databaseConnection;
+
     private final TokenUtil tokenUtil = new TokenUtil();
 
     @Override

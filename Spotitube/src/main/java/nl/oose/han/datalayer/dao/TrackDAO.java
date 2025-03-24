@@ -1,6 +1,7 @@
 package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
@@ -17,7 +18,9 @@ import java.util.List;
 @ApplicationScoped
 public class TrackDAO implements iTrackDAO {
 
-    private final DatabaseConnection databaseConnection = new DatabaseConnection();
+    @Inject
+    private DatabaseConnection databaseConnection;
+
     private final TokenUtil tokenUtil = new TokenUtil();
     private final TrackMapper trackMapper = new TrackMapper();
 

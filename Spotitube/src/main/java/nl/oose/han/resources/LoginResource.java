@@ -19,7 +19,8 @@ public class LoginResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response loginValidator(UserDTO user) {
         boolean isValid = loginService.validateUser(user.getUser(), user.getPassword());
-        UserToken userToken = new UserToken(user.getUser(), "1234-1234-1234");
+        System.out.println(user.getToken());
+        UserToken userToken = new UserToken(user.getUser(), user.getToken());
         if (isValid) {
             return Response.ok(userToken).build();
         } else {

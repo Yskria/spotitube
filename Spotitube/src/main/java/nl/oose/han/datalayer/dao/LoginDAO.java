@@ -14,8 +14,6 @@ import java.sql.ResultSet;
 @RequestScoped
 public class LoginDAO implements iLoginDAO {
 
-    private final LoginMapper loginMapper = new LoginMapper();
-
     @Inject
     private DatabaseConnection databaseConnection;
 
@@ -25,6 +23,7 @@ public class LoginDAO implements iLoginDAO {
 
     @Override
     public boolean validateUser(String username, String password) {
+        LoginMapper loginMapper = new LoginMapper();
         String query = "SELECT username, password FROM users WHERE username = ? AND password = ?";
 
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());

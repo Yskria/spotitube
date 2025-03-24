@@ -20,7 +20,7 @@ public class LoginResource {
     public Response loginValidator(UserDTO user) {
         boolean isValid = loginService.validateUser(user.getUser(), user.getPassword());
         System.out.println(user.getToken());
-        UserToken userToken = new UserToken(user.getUser(), user.getToken());
+        UserToken userToken = new UserToken(user.getUser(), "1234-1234-1234");
         if (isValid) {
             return Response.ok(userToken).build();
         } else {

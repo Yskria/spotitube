@@ -27,7 +27,6 @@ public class PlayListResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPlaylists(@QueryParam("token") String token) {
-        System.out.println(token);
         if(Objects.equals(token, "1234-1234-1234")) {
             return Response.ok(playlistService.getPlaylists(token)).build();
         }

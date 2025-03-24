@@ -19,11 +19,11 @@ public class PlayListDAO implements iPlayListDAO {
     @Inject
     private DatabaseConnection databaseConnection;
 
-    private final TrackMapper trackMapper = new TrackMapper();
-
     @Override
     public List<TrackDTO> getAllSongsInPlaylist(int playlistId, String token) {
+        TrackMapper trackMapper = new TrackMapper();
         List<TrackDTO> tracks = null;
+
         String query = "SELECT *, tip.offlineAvailable " +
                 "FROM track t " +
                 "JOIN track_in_playlist tip ON t.id = tip.track_id " +

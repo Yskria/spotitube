@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
-import nl.oose.han.datalayer.tokenutil.TokenUtil;
+import nl.oose.han.datalayer.tokenutil.UserDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
 
 import java.sql.Connection;
@@ -17,11 +17,11 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
     @Inject
     private DatabaseConnection databaseConnection;
 
-    private final TokenUtil tokenUtil = new TokenUtil();
+    private final UserDAO userDAO = new UserDAO();
 
     @Override
     public void addPlayTrackToPlayList(int playlistID, TrackDTO trackID, String token, boolean offlineAvailable) {
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = userDAO.getUsernameFromToken(token);
         String query = "INSERT INTO track_in_playlist (playlist_id, track_id, offlineAvailable) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -36,7 +36,7 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
 
     @Override
     public void deleteTrackFromPlaylist(int playlistID, int trackID, String token) {
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = userDAO.getUsernameFromToken(token);
         String query = "DELETE FROM track_in_playlist WHERE playlist_id = ? AND track_id = ?";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {

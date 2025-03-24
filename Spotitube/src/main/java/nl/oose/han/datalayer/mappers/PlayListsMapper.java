@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO: FIX THIS MAPPER
 public class PlayListsMapper {
-    public List<PlayListDTO> getAll(ResultSet rs, String username, String token, List<TrackDTO> tracks, int id) throws SQLException {
+    public List<PlayListDTO> getAll(ResultSet rs, String username) throws SQLException {
         List<PlayListDTO> playListsList = new ArrayList<>();
         while (rs.next()) {
-            playListsList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), tracks));
+            int id = rs.getInt("id");
+            playListsList.add(new PlayListDTO(id, rs.getString("name"), rs.getString("owner").equals(username), new ArrayList<>()));
         }
         return playListsList;
     }

@@ -1,10 +1,10 @@
-package nl.oose.han;
+package nl.oose.han.datalayer.dto;
 
-public class UserToken {
+public class LoginDTO {
     private String user;
     private String token;
 
-    public UserToken(String user, String token) {
+    public LoginDTO(String user, String token) {
         this.user = user;
         this.token = token;
     }
@@ -24,6 +24,4 @@ public class UserToken {
     public void setUser(String user) {
         this.user = user;
     }
-
-
 }

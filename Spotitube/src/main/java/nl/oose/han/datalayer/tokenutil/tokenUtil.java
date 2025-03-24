@@ -7,12 +7,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class UserDAO {
+public class tokenUtil {
 
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
 
     public String getUsernameFromToken(String token) {
-        String query = "SELECT username FROM usertoken WHERE userToken = ?";
+        String query = "SELECT username FROM users WHERE userToken = ?";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
 

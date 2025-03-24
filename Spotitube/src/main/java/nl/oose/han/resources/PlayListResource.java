@@ -5,6 +5,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import nl.oose.han.datalayer.dto.PlayListDTO;
+import nl.oose.han.services.LoginService;
 import nl.oose.han.services.PlayListService;
 
 import java.util.Objects;
@@ -16,6 +17,9 @@ public class PlayListResource {
 
     @Inject
     private PlayListService playlistService;
+
+    @Inject
+    private LoginService loginService;
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

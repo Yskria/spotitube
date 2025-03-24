@@ -20,7 +20,7 @@ public class LoginResource {
     public Response loginValidator(UserDTO user) {
         boolean isValid = loginService.validateUser(user.getUser(), user.getPassword());
         if (isValid) {
-            LoginDTO loginDTO = new LoginDTO(user.getUser(), loginService.getUserToken(user.getUser()));
+            LoginDTO loginDTO = new LoginDTO(user.getUser(), "1234-1234-1234");
             return Response.ok(loginDTO).build();
         } else {
             return Response.status(Response.Status.NOT_FOUND).build();

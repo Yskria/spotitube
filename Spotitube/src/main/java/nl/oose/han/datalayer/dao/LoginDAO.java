@@ -2,6 +2,7 @@ package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.RequestScoped;
 import nl.oose.han.datalayer.DatabaseConnection;
+import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
 import nl.oose.han.datalayer.mappers.LoginMapper;
 
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @RequestScoped
-public class LoginDAO {
+public class LoginDAO implements iLoginDAO {
 
     private final LoginMapper loginMapper = new LoginMapper();
     private final DatabaseConnection databaseConnection;
@@ -19,6 +20,7 @@ public class LoginDAO {
         this.databaseConnection = new DatabaseConnection();
     }
 
+    @Override
     public boolean validateUser(String username, String password) {
         String query = "SELECT username, password FROM users WHERE username = ? AND password = ?";
 

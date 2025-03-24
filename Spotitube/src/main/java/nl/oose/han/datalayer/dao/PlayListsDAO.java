@@ -2,6 +2,7 @@ package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
-public class PlayListsDAO implements iDAO<PlayListDTO> {
+public class PlayListsDAO implements iPlayListsDAO {
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
 

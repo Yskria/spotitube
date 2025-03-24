@@ -1,6 +1,7 @@
 package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TrackMapper;
@@ -14,12 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped
-public class TrackDAO implements iDAO<TrackDTO> {
+public class TrackDAO implements iTrackDAO {
 
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
     private final TrackMapper trackMapper = new TrackMapper();
 
+    @Override
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
         List<TrackDTO> tracks = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
@@ -40,25 +42,5 @@ public class TrackDAO implements iDAO<TrackDTO> {
             e.printStackTrace();
         }
         return tracks;
-    }
-
-    @Override
-    public void add(TrackDTO trackDTO, String token) {
-
-    }
-
-    @Override
-    public void update(TrackDTO trackDTO, String token) {
-
-    }
-
-    @Override
-    public void delete(int id, String token) {
-
-    }
-
-    @Override
-    public List<TrackDTO> getAll(String token) {
-        return null;
     }
 }

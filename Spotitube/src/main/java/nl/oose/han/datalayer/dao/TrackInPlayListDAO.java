@@ -4,16 +4,18 @@ import jakarta.enterprise.context.ApplicationScoped;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.tokenutil.TokenUtil;
+import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 @ApplicationScoped
-public class TrackInPlayListDAO {
+public class TrackInPlayListDAO implements iTrackInPLayListDAO {
     private final DatabaseConnection databaseConnection = new DatabaseConnection();
     private final TokenUtil tokenUtil = new TokenUtil();
 
+    @Override
     public void addPlayTrackToPlayList(int playlistID, TrackDTO trackID, String token) {
         String username = tokenUtil.getUsernameFromToken(token);
         String query = "INSERT INTO track_in_playlist (playlist_id, track_id) VALUES (?, ?)";
@@ -27,6 +29,7 @@ public class TrackInPlayListDAO {
         }
     }
 
+    @Override
     public void deleteTrackFromPlaylist(int playlistID, int trackID, String token) {
         String username = tokenUtil.getUsernameFromToken(token);
         String query = "DELETE FROM track_in_playlist WHERE playlist_id = ? AND track_id = ?";

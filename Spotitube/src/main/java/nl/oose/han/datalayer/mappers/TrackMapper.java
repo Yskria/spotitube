@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrackMapper {
-    public List<TrackDTO> getAllSongsInPlaylist(ResultSet rs) throws SQLException {
+    public List<TrackDTO> getSongs(ResultSet rs) throws SQLException {
         List<TrackDTO> tracks = new ArrayList<>();
         while (rs.next()) {
                 TrackDTO track = new TrackDTO();

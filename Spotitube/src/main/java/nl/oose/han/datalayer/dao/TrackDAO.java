@@ -28,7 +28,7 @@ public class TrackDAO implements iTrackDAO {
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
         List<TrackDTO> tracks = new ArrayList<>();
         String username = tokenUtil.getUsernameFromToken(token);
-        String query = "SELECT t.id, t.title, t.performer, t.duration, t.album, t.playcount, t.publicationDate, t.description, t.offlineAvailable " +
+        String query = "SELECT t.id, t.title, t.performer, t.duration, t.album, t.playcount, t.publicationDate, t.description, tip.offlineAvailable " +
                 "FROM track t " +
                 "LEFT JOIN track_in_playlist tip ON t.id = tip.track_id AND tip.playlist_id = ? " +
                 "LEFT JOIN playlist p ON p.id = tip.playlist_id " +
@@ -39,7 +39,7 @@ public class TrackDAO implements iTrackDAO {
             stmt.setInt(1, playlistID);
             stmt.setString(2, username);
             ResultSet rs = stmt.executeQuery();
-            tracks = trackMapper.getAllSongsInPlaylist(rs);
+            tracks = trackMapper.getSongs(rs);
         }
         catch (Exception e) {
             e.printStackTrace();

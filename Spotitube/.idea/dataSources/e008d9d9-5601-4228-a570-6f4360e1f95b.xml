@@ -16859,14 +16859,14 @@
       <Type>database-role</Type>
       <OwnerId>1</OwnerId>
     </role>
-    <role id="5567" parent="5520" name="sys">
-      <AuthType>none</AuthType>
-      <ObjectId>4</ObjectId>
-    </role>
-    <role id="5568" parent="5520" name="spotitube">
+    <role id="5567" parent="5520" name="spotitube">
       <AuthType>instance</AuthType>
       <DefaultSchema>dbo</DefaultSchema>
       <ObjectId>5</ObjectId>
+    </role>
+    <role id="5568" parent="5520" name="sys">
+      <AuthType>none</AuthType>
+      <ObjectId>4</ObjectId>
     </role>
     <schema id="5569" parent="5520" name="INFORMATION_SCHEMA">
       <ObjectId>3</ObjectId>
@@ -16900,8 +16900,8 @@
     </schema>
     <schema id="5579" parent="5520" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2025-03-12.13:18:45.030</IntrospectionTimestamp>
-      <LastIntrospectionLocalTimestamp>2025-03-12.11:18:44</LastIntrospectionLocalTimestamp>
+      <IntrospectionTimestamp>2025-03-24.13:51:32.467</IntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-03-24.11:51:32</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5580" parent="5520" name="guest">
@@ -16929,7 +16929,7 @@
     <table id="5584" parent="5579" name="track_in_playlist">
       <CreatedTimestamp>2025-03-12.12:02:18.583</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-12.12:02:18.583</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-03-24.13:30:55.183</ModifiedTimestamp>
       <ObjectId>917578307</ObjectId>
       <LedgerViewId>0</LedgerViewId>
       <LobDataSpaceId>0</LobDataSpaceId>
@@ -16938,7 +16938,7 @@
     <table id="5585" parent="5579" name="users">
       <CreatedTimestamp>2025-03-11.14:46:38.897</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2025-03-11.14:46:38.897</ModifiedTimestamp>
+      <ModifiedTimestamp>2025-03-24.13:35:44.543</ModifiedTimestamp>
       <ObjectId>581577110</ObjectId>
       <LedgerViewId>0</LedgerViewId>
       <LobDataSpaceId>0</LobDataSpaceId>
@@ -16955,7 +16955,7 @@
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>1(3)</SequenceIdentity>
+      <SequenceIdentity>1(18)</SequenceIdentity>
     </column>
     <column id="5588" parent="5582" name="name">
       <DasType>varchar(255 char)|0s</DasType>
@@ -16987,7 +16987,7 @@
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>1(4)</SequenceIdentity>
+      <SequenceIdentity>1(8)</SequenceIdentity>
     </column>
     <column id="5593" parent="5583" name="title">
       <DasType>varchar(255 char)|0s</DasType>
@@ -17049,21 +17049,29 @@
       <DasType>int|0s</DasType>
       <Position>2</Position>
     </column>
-    <partition id="5605" parent="5584">
+    <column id="5605" parent="5584" name="offlineAvailable">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <partition id="5606" parent="5584">
       <ObjectId>72057594043301888</ObjectId>
       <Position>1</Position>
     </partition>
-    <column id="5606" parent="5585" name="username">
+    <column id="5607" parent="5585" name="username">
       <DasType>varchar(255 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5607" parent="5585" name="password">
+    <column id="5608" parent="5585" name="password">
       <DasType>varchar(255 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="5608" parent="5585" name="PK__users__F3DBC5732232C1C8">
+    <column id="5609" parent="5585" name="userToken">
+      <DasType>varchar(255 char)|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <index id="5610" parent="5585" name="PK__users__F3DBC5732232C1C8">
       <Clustering>1</Clustering>
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17071,7 +17079,7 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5609" parent="5585" name="PK__users__F3DBC5732232C1C8">
+    <key id="5611" parent="5585" name="PK__users__F3DBC5732232C1C8">
       <CreatedTimestamp>2025-03-11.14:46:38.900</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-11.14:46:38.900</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17079,17 +17087,17 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__users__F3DBC5732232C1C8</UnderlyingIndexName>
     </key>
-    <column id="5610" parent="5586" name="username">
+    <column id="5612" parent="5586" name="username">
       <DasType>varchar(255 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5611" parent="5586" name="userToken">
+    <column id="5613" parent="5586" name="userToken">
       <DasType>varchar(255 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="5612" parent="5586" name="PK__usertoke__F3DBC573087B2DA3">
+    <index id="5614" parent="5586" name="PK__usertoke__F3DBC573087B2DA3">
       <Clustering>1</Clustering>
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -17097,7 +17105,7 @@
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5613" parent="5586" name="PK__usertoke__F3DBC573087B2DA3">
+    <key id="5615" parent="5586" name="PK__usertoke__F3DBC573087B2DA3">
       <CreatedTimestamp>2025-03-12.13:09:35.520</CreatedTimestamp>
       <ModifiedTimestamp>2025-03-12.13:09:35.520</ModifiedTimestamp>
       <NameSurrogate>1</NameSurrogate>
@@ -17105,19 +17113,19 @@
       <Primary>1</Primary>
       <UnderlyingIndexName>PK__usertoke__F3DBC573087B2DA3</UnderlyingIndexName>
     </key>
-    <partition id="5614" parent="5590">
+    <partition id="5616" parent="5590">
       <ObjectId>72057594043236352</ObjectId>
       <Position>1</Position>
     </partition>
-    <partition id="5615" parent="5601">
+    <partition id="5617" parent="5601">
       <ObjectId>72057594043367424</ObjectId>
       <Position>1</Position>
     </partition>
-    <partition id="5616" parent="5608">
+    <partition id="5618" parent="5610">
       <ObjectId>72057594043170816</ObjectId>
       <Position>1</Position>
     </partition>
-    <partition id="5617" parent="5612">
+    <partition id="5619" parent="5614">
       <ObjectId>72057594043432960</ObjectId>
       <Position>1</Position>
     </partition>

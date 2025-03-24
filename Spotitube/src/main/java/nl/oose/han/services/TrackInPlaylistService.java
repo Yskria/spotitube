@@ -25,7 +25,8 @@ public class TrackInPlaylistService implements iTrackInPlayListService {
 
     @Override
     public List<TrackDTO> addTrackToPlaylist(int playlistId, TrackDTO track, String token) {
-        trackInPlayListDAO.addPlayTrackToPlayList(playlistId, track, token);
+        boolean offlineAvailable = track.isOfflineAvailable();
+        trackInPlayListDAO.addPlayTrackToPlayList(playlistId, track, token, offlineAvailable);
         return getAllSongsInPlaylist(playlistId, token);
     }
 

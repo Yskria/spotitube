@@ -20,13 +20,14 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
     private final TokenUtil tokenUtil = new TokenUtil();
 
     @Override
-    public void addPlayTrackToPlayList(int playlistID, TrackDTO trackID, String token) {
+    public void addPlayTrackToPlayList(int playlistID, TrackDTO trackID, String token, boolean offlineAvailable) {
         String username = tokenUtil.getUsernameFromToken(token);
-        String query = "INSERT INTO track_in_playlist (playlist_id, track_id) VALUES (?, ?)";
+        String query = "INSERT INTO track_in_playlist (playlist_id, track_id, offlineAvailable) VALUES (?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, playlistID);
             stmt.setInt(2, trackID.getId());
+            stmt.setBoolean(3, offlineAvailable);
             stmt.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

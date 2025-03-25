@@ -4,6 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
@@ -20,7 +21,7 @@ public class PlayListsDAO implements iPlayListsDAO {
     private DatabaseConnection databaseConnection;
 
     @Inject
-    private TokenDAO tokenDAO;
+    private iTokenDAO tokenDAO;
 
     @Override
     public void add(PlayListDTO playlist, String token) {

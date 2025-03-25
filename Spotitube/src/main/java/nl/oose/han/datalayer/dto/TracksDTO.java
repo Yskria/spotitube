@@ -1,13 +1,11 @@
-package nl.oose.han;
-
-import nl.oose.han.datalayer.dto.TrackDTO;
+package nl.oose.han.datalayer.dto;
 
 import java.util.List;
 
-public class Tracks {
+public class TracksDTO {
     List<TrackDTO> tracks;
 
-    public Tracks(List<TrackDTO> tracks) {
+    public TracksDTO(List<TrackDTO> tracks) {
         this.tracks = tracks;
     }
 

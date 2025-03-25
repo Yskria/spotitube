@@ -2,9 +2,7 @@ package nl.oose.han.services;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.PlayLists;
-import nl.oose.han.datalayer.dao.PlayListsDAO;
-import nl.oose.han.datalayer.dao.daointerfaces.iPlayListDAO;
+import nl.oose.han.datalayer.dto.PlayListsDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.dto.TrackDTO;
@@ -19,29 +17,29 @@ public class PlayListService implements iPlayListService {
     private iPlayListsDAO playListsDAO;
 
     @Override
-    public PlayLists getPlaylists(String token) {
+    public PlayListsDTO getPlaylists(String token) {
         List<PlayListDTO> playlists = playListsDAO.getAll(token);
         int totalLength = playlists.stream()
                 .flatMap(playlist -> playlist.getTracks().stream())
                 .mapToInt(TrackDTO::getDuration)
                 .sum();
-        return new PlayLists(playlists, totalLength);
+        return new PlayListsDTO(playlists, totalLength);
     }
 
     @Override
-    public PlayLists deletePlayList(int playlistId, String token) {
+    public PlayListsDTO deletePlayList(int playlistId, String token) {
         playListsDAO.delete(playlistId, token);
         return getPlaylists(token);
     }
 
     @Override
-    public PlayLists addPlayList(String token, PlayListDTO playlist) {
+    public PlayListsDTO addPlayList(String token, PlayListDTO playlist) {
         playListsDAO.add(playlist, token);
         return getPlaylists(token);
     }
 
     @Override
-    public PlayLists updatePlayList(String token, int playlistId, PlayListDTO playlist) {
+    public PlayListsDTO updatePlayList(String token, int playlistId, PlayListDTO playlist) {
         playlist.setId(playlistId);
         playListsDAO.update(playlist, token);
         return getPlaylists(token);

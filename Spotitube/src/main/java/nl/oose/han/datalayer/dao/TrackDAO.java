@@ -2,6 +2,7 @@ package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
@@ -22,12 +23,12 @@ public class TrackDAO implements iTrackDAO {
     private DatabaseConnection databaseConnection;
 
     @Inject
-    private TokenDAO tokenDAO;
+    private iTokenDAO tokenDAO;
 
     @Override
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
         TrackMapper trackMapper = new TrackMapper();
-        List<TrackDTO> tracks = new ArrayList<>();
+        List<TrackDTO> tracks;
         String username = tokenDAO.getUsernameFromToken(token);
         String query = "SELECT t.id, t.title, t.performer, t.duration, t.album, t.playcount, t.publicationDate, t.description, tip.offlineAvailable " +
                 "FROM track t " +

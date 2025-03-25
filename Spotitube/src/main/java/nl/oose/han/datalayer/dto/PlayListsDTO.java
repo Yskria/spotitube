@@ -1,19 +1,17 @@
-package nl.oose.han;
-import nl.oose.han.datalayer.dto.PlayListDTO;
+package nl.oose.han.datalayer.dto;
 
 import java.util.List;
 
-public class PlayLists {
+public class PlayListsDTO {
     private List<PlayListDTO> playlists;
     private int length;
 
-    public PlayLists(List<PlayListDTO> playlists, int length) {
+    public PlayListsDTO(List<PlayListDTO> playlists, int length) {
         this.playlists = playlists;
         this.length = length;
     }
 
-    public PlayLists() {
-
+    public PlayListsDTO() {
     }
 
     public List<PlayListDTO> getPlaylists() {

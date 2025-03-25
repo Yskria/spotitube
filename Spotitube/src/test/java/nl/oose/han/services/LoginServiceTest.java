@@ -30,36 +30,47 @@ public class LoginServiceTest {
 
     @Test
     void testValidateUserWithProperCredentials() {
+        //Arrange
         when(loginDAO.validateUser(correctUsername, correctPassword)).thenReturn(true);
 
+        //Act
         boolean result = sut.validateUser("Laurens", "Password");
 
+        //Assert
         assertTrue(result);
     }
 
     @Test
     void testValidateUserPasswordDoesNotExist() {
+        //Arrange
         when(loginDAO.validateUser(correctUsername, "WrongPassword")).thenReturn(false);
 
+        //Act
         boolean result = sut.validateUser(correctUsername, "WrongPassword");
 
+        //Assert
         assertFalse(result);
     }
 
     @Test
     void testValidateUserUsernameDoesNotExist() {
+        //Arrange
         when(loginDAO.validateUser("WrongUsername", correctPassword)).thenReturn(false);
 
+        //Act
         boolean result = sut.validateUser(correctUsername, "WrongPassword");
 
+        //Assert
         assertFalse(result);
     }
 
     @Test
     void testGetUserTokenAssertDoesNotThrow() {
+        //Arrange
         String expectedToken = "1234-1234-1234";
         when(loginDAO.getUserToken(correctUsername)).thenReturn(expectedToken);
 
+        //Act & Assert
         assertDoesNotThrow(() -> {
             String result = sut.getUserToken(correctUsername);
             assertEquals(expectedToken, result);
@@ -68,8 +79,10 @@ public class LoginServiceTest {
 
     @Test
     void testGetUserTokenAssertThrowsl() {
+        //Arrange
         when(loginDAO.getUserToken("incorrectUsername")).thenReturn(null);
 
+        //Act & Assert
         assertThrows(TokenNotFoundException.class, () -> {
             sut.getUserToken("Laurens");
         });

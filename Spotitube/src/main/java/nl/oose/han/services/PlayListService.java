@@ -5,7 +5,6 @@ import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dto.PlayListsDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
-import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 

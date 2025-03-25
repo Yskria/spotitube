@@ -45,4 +45,16 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
             throw new DatabaseConnectionException("Failed to connect to the database on deleteTrackFromPlaylist: " + e.getMessage());
         }
     }
+
+    @Override
+    public boolean checkIfPlaylistExists(int playlistID){
+        String query = "SELECT * FROM playlist WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, playlistID);
+            return stmt.executeQuery().next();
+        } catch (Exception e) {
+            throw new DatabaseConnectionException("Failed to connect to the database on checkIfPlaylistExists: " + e.getMessage());
+        }
+    }
 }

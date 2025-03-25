@@ -8,4 +8,5 @@ public interface iTrackInPlayListService {
     List<TrackDTO> getAllSongsInPlaylist(int playlistId, String token);
     List<TrackDTO> addTrackToPlaylist(int playlistId, TrackDTO track, String token);
     List<TrackDTO> deleteTrackFromPlaylist(int playlistId, int trackId, String token);
+    void playlistChecker(int playlistId);
 }

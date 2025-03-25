@@ -6,7 +6,6 @@ import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TrackMapper;
-import nl.oose.han.datalayer.tokenutil.tokenUtil;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,13 +20,13 @@ public class TrackDAO implements iTrackDAO {
     @Inject
     private DatabaseConnection databaseConnection;
 
-    private final tokenUtil tokenUtil = new tokenUtil();
+    private final TokenDAO tokenDAO = new TokenDAO();
 
     @Override
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
         TrackMapper trackMapper = new TrackMapper();
         List<TrackDTO> tracks = new ArrayList<>();
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = tokenDAO.getUsernameFromToken(token);
         String query = "SELECT t.id, t.title, t.performer, t.duration, t.album, t.playcount, t.publicationDate, t.description, tip.offlineAvailable " +
                 "FROM track t " +
                 "LEFT JOIN track_in_playlist tip ON t.id = tip.track_id AND tip.playlist_id = ? " +

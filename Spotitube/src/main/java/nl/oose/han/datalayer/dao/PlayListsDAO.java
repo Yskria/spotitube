@@ -1,28 +1,29 @@
 package nl.oose.han.datalayer.dao;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
-import nl.oose.han.datalayer.tokenutil.tokenUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApplicationScoped
+@RequestScoped
 public class PlayListsDAO implements iPlayListsDAO {
 
     @Inject
     private DatabaseConnection databaseConnection;
 
-    private final tokenUtil tokenUtil = new tokenUtil();
+    @Inject
+    private TokenDAO tokenDAO;
 
     @Override
     public void add(PlayListDTO playlist, String token) {
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = tokenDAO.getUsernameFromToken(token);
         String query = "INSERT INTO playlist (name, owner) VALUES (?, ?)";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -36,7 +37,7 @@ public class PlayListsDAO implements iPlayListsDAO {
 
     @Override
     public void update(PlayListDTO playlist, String token) {
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = tokenDAO.getUsernameFromToken(token);
         String query = "UPDATE playlist SET name = ?, owner = ? WHERE id = ?";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -52,7 +53,7 @@ public class PlayListsDAO implements iPlayListsDAO {
 
     @Override
     public void delete(int id, String token) {
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = tokenDAO.getUsernameFromToken(token);
         String query = "DELETE FROM playlist WHERE id = ? AND owner = ?";
         try (Connection conn = DriverManager.getConnection(databaseConnection.connectionString());
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -68,7 +69,7 @@ public class PlayListsDAO implements iPlayListsDAO {
     @Override
     public List<PlayListDTO> getAll(String token) {
         List<PlayListDTO> playListsList = new ArrayList<>();
-        String username = tokenUtil.getUsernameFromToken(token);
+        String username = tokenDAO.getUsernameFromToken(token);
         PlayListsMapper playListsMapper = new PlayListsMapper();
 
         String query = "SELECT * FROM playlist";

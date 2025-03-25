@@ -3,6 +3,7 @@ package nl.oose.han.datalayer.dao;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.DatabaseConnection;
+import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
 import nl.oose.han.datalayer.mappers.TokenMapper;
 import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
@@ -12,11 +13,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @RequestScoped
-public class TokenDAO {
+public class TokenDAO  implements iTokenDAO {
 
     @Inject
     private DatabaseConnection databaseConnection;
 
+    @Override
     public String getUsernameFromToken(String token) {
         String query = "SELECT username FROM users WHERE userToken = ?";
         TokenMapper tokenMapper = new TokenMapper();
@@ -31,6 +33,7 @@ public class TokenDAO {
         }
     }
 
+    @Override
     public String validateToken(String token) {
         TokenMapper tokenMapper = new TokenMapper();
         String query = "SELECT userToken FROM users WHERE userToken = ?";

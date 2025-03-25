@@ -19,10 +19,6 @@ public class LoginDAO implements iLoginDAO {
     @Inject
     private DatabaseConnection databaseConnection;
 
-    public LoginDAO() {
-        this.databaseConnection = new DatabaseConnection();
-    }
-
     @Override
     public boolean validateUser(String username, String password) {
         LoginMapper loginMapper = new LoginMapper();
@@ -41,6 +37,7 @@ public class LoginDAO implements iLoginDAO {
         }
     }
 
+    @Override
     public String getUserToken(String username) {
         UserDTO user = new UserDTO();
         String query = "SELECT username, userToken FROM users WHERE username = ?";

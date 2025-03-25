@@ -7,6 +7,8 @@ import jakarta.ws.rs.core.Response;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.TokenService;
 import nl.oose.han.services.TrackInPlaylistService;
+import nl.oose.han.services.serviceinterfaces.iTokenService;
+import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,10 +18,10 @@ import java.util.Map;
 public class TrackInPlaylistResource {
 
     @Inject
-    private TrackInPlaylistService trackInPlaylistService;
+    private iTrackInPlayListService trackInPlaylistService;
 
     @Inject
-    private TokenService tokenService;
+    private iTokenService tokenService;
 
     @GET
     @Path("/{forPlayList}/tracks")

@@ -4,6 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.PlayLists;
 import nl.oose.han.datalayer.dao.PlayListsDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iPlayListDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
@@ -14,7 +16,7 @@ import java.util.List;
 public class PlayListService implements iPlayListService {
 
     @Inject
-    private PlayListsDAO playListsDAO;
+    private iPlayListsDAO playListsDAO;
 
     @Override
     public PlayLists getPlaylists(String token) {

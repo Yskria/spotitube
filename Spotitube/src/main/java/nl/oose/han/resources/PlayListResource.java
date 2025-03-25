@@ -7,15 +7,17 @@ import jakarta.ws.rs.core.Response;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.services.PlayListService;
 import nl.oose.han.services.TokenService;
+import nl.oose.han.services.serviceinterfaces.iPlayListService;
+import nl.oose.han.services.serviceinterfaces.iTokenService;
 
 @Path("/playlists")
 public class PlayListResource {
 
     @Inject
-    private PlayListService playlistService;
+    private iPlayListService playlistService;
 
     @Inject
-    private TokenService tokenService;
+    private iTokenService tokenService;
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

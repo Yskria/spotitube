@@ -4,6 +4,8 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.PlayListDAO;
 import nl.oose.han.datalayer.dao.TrackInPlayListDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iPlayListDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.exceptions.PlayListNotFoundException;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
@@ -14,10 +16,10 @@ import java.util.List;
 public class TrackInPlaylistService implements iTrackInPlayListService {
 
     @Inject
-    private PlayListDAO playListDAO;
+    private iPlayListDAO playListDAO;
 
     @Inject
-    private TrackInPlayListDAO trackInPlayListDAO;
+    private iTrackInPLayListDAO trackInPlayListDAO;
 
     @Override
     public List<TrackDTO> getAllSongsInPlaylist(int playlistId, String token) {

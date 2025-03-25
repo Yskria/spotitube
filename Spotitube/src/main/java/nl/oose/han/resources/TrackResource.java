@@ -9,15 +9,17 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import nl.oose.han.services.TokenService;
 import nl.oose.han.services.TrackService;
+import nl.oose.han.services.serviceinterfaces.iTokenService;
+import nl.oose.han.services.serviceinterfaces.iTrackService;
 
 @Path("/tracks")
 public class TrackResource {
 
     @Inject
-    private TrackService trackService;
+    private iTrackService trackService;
 
     @Inject
-    private TokenService tokenService;
+    private iTokenService tokenService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

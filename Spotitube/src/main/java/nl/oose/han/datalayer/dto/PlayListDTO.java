@@ -18,6 +18,10 @@ public class PlayListDTO {
     public PlayListDTO() {
     }
 
+    public int getLength(){
+        return tracks.stream().mapToInt(TrackDTO::getDuration).sum();
+    }
+
     public int getId() {
         return id;
     }

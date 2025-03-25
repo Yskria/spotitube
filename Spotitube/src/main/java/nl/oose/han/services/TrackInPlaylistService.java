@@ -2,10 +2,10 @@ package nl.oose.han.services;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.datalayer.dao.PlayListDAO;
-import nl.oose.han.datalayer.dao.TrackInPlayListDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListDAO;
+import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
+import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.exceptions.PlayListNotFoundException;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
@@ -20,6 +20,9 @@ public class TrackInPlaylistService implements iTrackInPlayListService {
 
     @Inject
     private iTrackInPLayListDAO trackInPlayListDAO;
+
+    @Inject
+    private iPlayListsDAO playListsDAO;
 
     @Override
     public List<TrackDTO> getAllSongsInPlaylist(int playlistId, String token) {
@@ -47,5 +50,14 @@ public class TrackInPlaylistService implements iTrackInPlayListService {
         if(!trackInPlayListDAO.checkIfPlaylistExists(playlistId)){
             throw new PlayListNotFoundException("Playlist not found");
         }
+    }
+
+    @Override
+    public int getAllPlaylistsWithPlaytime(String token) {
+        List<PlayListDTO> playlists = playListsDAO.getAll(token);
+        playlists.forEach(playlist -> playlist.setTracks(getAllSongsInPlaylist(playlist.getId(), token)));
+        return playlists.stream()
+                .mapToInt(PlayListDTO::getLength)
+                .sum();
     }
 }

@@ -7,6 +7,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
+import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 
 import java.util.List;
 
@@ -16,14 +17,13 @@ public class PlayListService implements iPlayListService {
     @Inject
     private iPlayListsDAO playListsDAO;
 
+    @Inject
+    private iTrackInPlayListService trackInPlayListService;
+
     @Override
     public PlayListsDTO getPlaylists(String token) {
         List<PlayListDTO> playlists = playListsDAO.getAll(token);
-        int totalLength = playlists.stream()
-                .flatMap(playlist -> playlist.getTracks().stream())
-                .mapToInt(TrackDTO::getDuration)
-                .sum();
-        return new PlayListsDTO(playlists, totalLength);
+        return new PlayListsDTO(playlists, trackInPlayListService.getAllPlaylistsWithPlaytime(token));
     }
 
     @Override

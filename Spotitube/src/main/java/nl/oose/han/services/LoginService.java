@@ -3,6 +3,7 @@ package nl.oose.han.services;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
+import nl.oose.han.services.exceptions.TokenNotFoundException;
 import nl.oose.han.services.serviceinterfaces.iLoginService;
 
 @RequestScoped
@@ -17,7 +18,7 @@ public class LoginService implements iLoginService {
     }
 
     @Override
-    public String getUserToken(String username) {
+    public String getUserToken(String username) throws TokenNotFoundException {
         return loginDAO.getUserToken(username);
     }
 }

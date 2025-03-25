@@ -10,12 +10,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="957dc666-2d72-43e7-ab6a-d945d00eb465" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/exceptions/TokenNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/exceptions/TokenNotFoundExceptionMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/datalayer/dao/LoginDAOTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/LoginServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/datalayer/dao/mappers/LoginMapperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/resources/LoginResourceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/resources/PlayListResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/datalayer/dao/LoginDAOTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/LoginServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/LoginServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +50,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final.executor": "Run",
-    "JUnit.LoginServiceTest.executor": "Run",
+    "JUnit.LoginDAOTest.executor": "Run",
+    "JUnit.LoginMapperTest.executor": "Coverage",
+    "JUnit.LoginResourceTest.executor": "Coverage",
+    "JUnit.LoginResourceTest.testLoginValidatorInvalidUser.executor": "Run",
+    "JUnit.LoginResourceTest.testLoginValidatorValidUser.executor": "Run",
+    "JUnit.LoginServiceTest.executor": "Coverage",
     "JUnit.LoginServiceTest.testGetUserToken.executor": "Run",
+    "JUnit.LoginServiceTest.testGetUserTokenShouldFail.executor": "Run",
     "JUnit.LoginServiceTest.testValidateUser.executor": "Run",
-    "JUnit.LoginServiceTest.testValidateUserShouldFail.executor": "Debug",
+    "JUnit.LoginServiceTest.testValidateUserShouldFail.executor": "Run",
+    "JUnit.LoginServiceTest.testValidateUserUsernameDoesNotExist.executor": "Run",
+    "JUnit.java in Spotitube.executor": "Coverage",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -79,7 +90,7 @@
       <recent name="nl.oose.han.datalayer.dao" />
     </key>
   </component>
-  <component name="RunManager" selected="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final">
+  <component name="RunManager" selected="JUnit.java in Spotitube">
     <configuration name="JBoss/WildFly 25.0.0.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 25.0.0.Final" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Spotitube-1.0/" />
@@ -151,58 +162,82 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
-    <configuration name="LoginServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.oose.han.services.*" />
+          <option name="PATTERN" value="nl.oose.han.datalayer.dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.LoginServiceTest" />
+      <option name="PACKAGE_NAME" value="nl.oose.han.datalayer.dao" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.datalayer.dao.LoginDAOTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginServiceTest.testGetUserToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.oose.han.services.*" />
+          <option name="PATTERN" value="nl.oose.han.datalayer.dao.mappers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.LoginServiceTest" />
-      <option name="METHOD_NAME" value="testGetUserToken" />
+      <option name="PACKAGE_NAME" value="nl.oose.han.datalayer.dao.mappers" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.datalayer.dao.mappers.LoginMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginResourceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spotitube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nl.oose.han.resources.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.LoginResourceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginResourceTest.testLoginValidatorValidUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spotitube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nl.oose.han.resources.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.LoginResourceTest" />
+      <option name="METHOD_NAME" value="testLoginValidatorValidUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginServiceTest.testValidateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="java in Spotitube" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.oose.han.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.LoginServiceTest" />
-      <option name="METHOD_NAME" value="testValidateUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginServiceTest.testGetUserToken" />
-        <item itemvalue="JUnit.LoginServiceTest.testValidateUser" />
-        <item itemvalue="JUnit.LoginServiceTest" />
+        <item itemvalue="JUnit.java in Spotitube" />
+        <item itemvalue="JUnit.LoginMapperTest" />
+        <item itemvalue="JUnit.LoginDAOTest" />
+        <item itemvalue="JUnit.LoginResourceTest" />
+        <item itemvalue="JUnit.LoginResourceTest.testLoginValidatorValidUser" />
       </list>
     </recent_temporary>
   </component>
@@ -228,7 +263,7 @@
       <workItem from="1741765765084" duration="19017000" />
       <workItem from="1741805404918" duration="12102000" />
       <workItem from="1742804755561" duration="15896000" />
-      <workItem from="1742885380076" duration="24215000" />
+      <workItem from="1742885380076" duration="31305000" />
     </task>
     <servers />
   </component>
@@ -245,5 +280,17 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Spotitube$LoginResourceTest.ic" NAME="LoginResourceTest Coverage Results" MODIFIED="1742933508329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>nl.oose.han.resources.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Spotitube$LoginServiceTest.ic" NAME="LoginServiceTest Coverage Results" MODIFIED="1742930973101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>nl.oose.han.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Spotitube$java_in_Spotitube.ic" NAME="java in Spotitube Coverage Results" MODIFIED="1742934586681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Spotitube$LoginMapperTest.ic" NAME="LoginMapperTest Coverage Results" MODIFIED="1742934371488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>nl.oose.han.datalayer.dao.mappers.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -2,11 +2,11 @@ package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
 import nl.oose.han.datalayer.dto.LoginDTO;
+import nl.oose.han.services.exceptions.TokenNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -29,7 +29,7 @@ public class LoginServiceTest {
     }
 
     @Test
-    void testValidateUser() {
+    void testValidateUserWithProperCredentials() {
         when(loginDAO.validateUser(correctUsername, correctPassword)).thenReturn(true);
 
         boolean result = sut.validateUser("Laurens", "Password");
@@ -37,19 +37,8 @@ public class LoginServiceTest {
         assertTrue(result);
     }
 
-//    @Test
-//    void testGetUserToken() {
-//        String expectedToken = "1234-1234-1234";
-//
-//        when(loginDAO.getUserToken(correctUsername)).thenReturn(expectedToken);
-//
-//        String result = sut.getUserToken(correctUsername);
-//
-//        assertEquals(expectedToken, result);
-//    }
-
     @Test
-    void testValidateUserShouldFail() {
+    void testValidateUserPasswordDoesNotExist() {
         when(loginDAO.validateUser(correctUsername, "WrongPassword")).thenReturn(false);
 
         boolean result = sut.validateUser(correctUsername, "WrongPassword");
@@ -57,12 +46,32 @@ public class LoginServiceTest {
         assertFalse(result);
     }
 
-//    @Test
-//    void testGetUserTokenShouldFail() {
-//        when(loginDAO.getUserToken("UnkownToken")).thenReturn(null);
-//
-//        String result = sut.getUserToken("UnkownToken");
-//
-//        assertNull(result);
-//    }
+    @Test
+    void testValidateUserUsernameDoesNotExist() {
+        when(loginDAO.validateUser("WrongUsername", correctPassword)).thenReturn(false);
+
+        boolean result = sut.validateUser(correctUsername, "WrongPassword");
+
+        assertFalse(result);
+    }
+
+    @Test
+    void testGetUserTokenAssertDoesNotThrow() {
+        String expectedToken = "1234-1234-1234";
+        when(loginDAO.getUserToken(correctUsername)).thenReturn(expectedToken);
+
+        assertDoesNotThrow(() -> {
+            String result = sut.getUserToken(correctUsername);
+            assertEquals(expectedToken, result);
+        });
+    }
+
+    @Test
+    void testGetUserTokenAssertThrowsl() {
+        when(loginDAO.getUserToken("incorrectUsername")).thenReturn(null);
+
+        assertThrows(TokenNotFoundException.class, () -> {
+            sut.getUserToken("Laurens");
+        });
+    }
 }

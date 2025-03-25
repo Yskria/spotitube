@@ -18,7 +18,11 @@ public class LoginService implements iLoginService {
     }
 
     @Override
-    public String getUserToken(String username) throws TokenNotFoundException {
-        return loginDAO.getUserToken(username);
+    public String getUserToken(String username){
+        if(loginDAO.getUserToken(username) != null) {
+            return loginDAO.getUserToken(username);
+        } else {
+            throw new TokenNotFoundException("No token found");
+        }
     }
 }

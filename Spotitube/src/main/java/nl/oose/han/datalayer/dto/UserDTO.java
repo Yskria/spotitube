@@ -5,6 +5,15 @@ public class UserDTO {
     private String password;
     private String token;
 
+    public UserDTO(String user, String password) {
+        this.user = user;
+        this.password = password;
+    }
+
+    public UserDTO(){
+
+    }
+
     public String getUser() {
         return user;
     }

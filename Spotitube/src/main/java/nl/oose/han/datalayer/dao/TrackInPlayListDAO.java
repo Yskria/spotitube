@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
+import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +29,7 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
             stmt.setBoolean(3, offlineAvailable);
             stmt.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
     }
 
@@ -41,7 +42,7 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
             stmt.setInt(2, trackID);
             stmt.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
     }
 }

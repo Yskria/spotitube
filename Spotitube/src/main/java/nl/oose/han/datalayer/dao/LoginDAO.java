@@ -6,6 +6,7 @@ import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
 import nl.oose.han.datalayer.dto.UserDTO;
 import nl.oose.han.datalayer.mappers.LoginMapper;
+import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,9 +37,8 @@ public class LoginDAO implements iLoginDAO {
 
             return loginMapper.validateUser(rs);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
-        return false;
     }
 
     public String getUserToken(String username) {
@@ -55,8 +55,7 @@ public class LoginDAO implements iLoginDAO {
                 user.setToken(rs.getString("userToken"));
             }
         } catch (Exception e) {
-            e.printStackTrace();
-
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
         return user.getToken();
     }

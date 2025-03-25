@@ -7,6 +7,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dto.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
+import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             stmt.setString(2, username);
             stmt.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
     }
 
@@ -47,7 +48,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             stmt.setInt(3, playlist.getId());
             stmt.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
     }
 
@@ -62,7 +63,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             stmt.setString(2, username);
             stmt.executeUpdate();
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
     }
 
@@ -80,7 +81,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             ResultSet rs = preparedStatement.executeQuery();
             playListsList = playListsMapper.getAll(rs, username);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
         return playListsList;
     }

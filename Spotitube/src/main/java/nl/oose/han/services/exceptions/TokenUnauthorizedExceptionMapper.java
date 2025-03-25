@@ -9,7 +9,7 @@ public class TokenUnauthorizedExceptionMapper implements ExceptionMapper<TokenUn
     @Override
     public Response toResponse(TokenUnauthorizedException exception) {
         return Response.status(Response.Status.UNAUTHORIZED)
-                .entity(exception.getMessage())
+                .entity("{\"error\": \"Unauthorized attempt\", \"details\": \"" + exception.getMessage() + "\"}")
                 .build();
     }
 }

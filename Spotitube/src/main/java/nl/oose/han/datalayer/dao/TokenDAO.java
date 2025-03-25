@@ -4,6 +4,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TokenMapper;
+import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,9 +28,8 @@ public class TokenDAO {
 
             return tokenMapper.validateUsername(rs);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
-        return null;
     }
 
     public String validateToken(String token) {
@@ -43,8 +43,7 @@ public class TokenDAO {
 
             return tokenMapper.validateToken(rs);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
-        return null;
     }
 }

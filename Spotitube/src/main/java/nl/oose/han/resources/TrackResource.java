@@ -25,5 +25,4 @@ public class TrackResource {
         tokenService.validateToken(token);
         return Response.ok(trackService.getAllTracksNotInPlaylist(playlistID, token)).build();
     }
-
 }

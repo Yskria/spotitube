@@ -6,6 +6,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.datalayer.dto.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TrackMapper;
+import nl.oose.han.services.exceptions.DatabaseConnectionException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -41,7 +42,7 @@ public class TrackDAO implements iTrackDAO {
             tracks = trackMapper.getSongs(rs);
         }
         catch (Exception e) {
-            e.printStackTrace();
+            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
         }
         return tracks;
     }

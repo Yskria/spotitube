@@ -63,7 +63,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             stmt.setString(2, username);
             stmt.executeUpdate();
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database delete: " + e.getMessage());
         }
     }
 
@@ -81,7 +81,7 @@ public class PlayListsDAO implements iPlayListsDAO {
             ResultSet rs = preparedStatement.executeQuery();
             playListsList = playListsMapper.getAll(rs, username);
         } catch (SQLException e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database getAll: " + e.getMessage());
         }
         return playListsList;
     }

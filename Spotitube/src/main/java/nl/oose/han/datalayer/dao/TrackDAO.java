@@ -21,7 +21,8 @@ public class TrackDAO implements iTrackDAO {
     @Inject
     private DatabaseConnection databaseConnection;
 
-    private final TokenDAO tokenDAO = new TokenDAO();
+    @Inject
+    private TokenDAO tokenDAO;
 
     @Override
     public List<TrackDTO> getAllTracksNotInPlayList(int playlistID, String token) {
@@ -42,7 +43,8 @@ public class TrackDAO implements iTrackDAO {
             tracks = trackMapper.getSongs(rs);
         }
         catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database on getAllTracksNotInPlayList: " + e.getMessage());
+
         }
         return tracks;
     }

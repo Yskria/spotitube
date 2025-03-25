@@ -29,7 +29,7 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
             stmt.setBoolean(3, offlineAvailable);
             stmt.executeUpdate();
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database on addPlayTrackToPlayList: " + e.getMessage());
         }
     }
 
@@ -42,7 +42,7 @@ public class TrackInPlayListDAO implements iTrackInPLayListDAO {
             stmt.setInt(2, trackID);
             stmt.executeUpdate();
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database on deleteTrackFromPlaylist: " + e.getMessage());
         }
     }
 }

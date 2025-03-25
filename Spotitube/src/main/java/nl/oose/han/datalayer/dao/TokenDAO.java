@@ -25,10 +25,9 @@ public class TokenDAO {
 
             stmt.setString(1, token);
             ResultSet rs = stmt.executeQuery();
-
             return tokenMapper.validateUsername(rs);
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database getUsernameFromToken: " + e.getMessage());
         }
     }
 
@@ -43,7 +42,7 @@ public class TokenDAO {
 
             return tokenMapper.validateToken(rs);
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database validateToken: " + e.getMessage());
         }
     }
 }

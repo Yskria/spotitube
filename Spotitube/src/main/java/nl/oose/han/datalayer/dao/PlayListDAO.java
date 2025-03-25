@@ -37,7 +37,7 @@ public class PlayListDAO implements iPlayListDAO {
             ResultSet rs = stmt.executeQuery();
             tracks = trackMapper.getSongs(rs);
         } catch (Exception e) {
-            throw new DatabaseConnectionException("Failed to connect to the database: " + e.getMessage());
+            throw new DatabaseConnectionException("Failed to connect to the database getAllSongsInPlaylist: " + e.getMessage());
         }
         return tracks;
     }

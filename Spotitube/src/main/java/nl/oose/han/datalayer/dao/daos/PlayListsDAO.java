@@ -1,6 +1,5 @@
-package nl.oose.han.datalayer.dao;
+package nl.oose.han.datalayer.dao.daos;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;

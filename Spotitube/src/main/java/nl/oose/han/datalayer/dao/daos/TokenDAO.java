@@ -1,4 +1,4 @@
-package nl.oose.han.datalayer.dao;
+package nl.oose.han.datalayer.dao.daos;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;

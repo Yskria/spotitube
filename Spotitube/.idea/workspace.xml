@@ -10,11 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="957dc666-2d72-43e7-ab6a-d945d00eb465" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/resources/TrackInPlayListResourceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/TrackInPlayListServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/datalayer/dao/mappers/TokenMapperTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/resources/TrackInPlaylistResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/resources/TrackInPlaylistResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/LoginDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/PlayListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/PlayListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/PlayListsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/PlayListsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TokenDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TrackDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TrackInPlayListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TrackInPlayListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackInPlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackInPlaylistService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/PlayListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/PlayListServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/TrackInPlayListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/TrackInPlayListServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,21 +78,33 @@
     "JUnit.PlayListServiceTest.testAddPlayListWithNullPlaylist.executor": "Run",
     "JUnit.PlayListServiceTest.testDeletePlayList.executor": "Debug",
     "JUnit.PlayListServiceTest.testGetPlaylists.executor": "Run",
+    "JUnit.PlayListServiceTest.testGetPlaylistsWithMultiplePlaylists.executor": "Run",
     "JUnit.PlayListServiceTest.testUpdatePlayList.executor": "Run",
     "JUnit.PlayListServiceTest.testUpdatePlayListWithNonExistentPlaylist.executor": "Run",
     "JUnit.PlayListServiceTest.testUpdatePlayList_Success.executor": "Run",
+    "JUnit.TokenMapperTest.executor": "Run",
     "JUnit.TokenServiceTest.testValidateTokenDoesNotThrowException.executor": "Run",
     "JUnit.TokenServiceTest.testValidateTokenThrowsException.executor": "Run",
     "JUnit.TrackInPlayListResourceTest.testAddTrackToPlaylist.executor": "Run",
     "JUnit.TrackInPlayListResourceTest.testDeleteTrackToPlaylist.executor": "Run",
     "JUnit.TrackInPlayListResourceTest.testGetTracksInPlaylist.executor": "Run",
     "JUnit.TrackInPlayListResourceTest.testGetTracksInPlaylist_EmptyPlaylist.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testAddTrackToPlaylist.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testDeleteTrackFromPlaylist.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testGetAllPlaylistsWithPlaytime.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testGetAllSongsInPlaylist.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testGetAllSongsInPlaylistWithEmptyPlaylist.executor": "Debug",
+    "JUnit.TrackInPlayListServiceTest.testGetAllSongsInSpecificPlaylistWhenMultiplePlaylistsExist.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testPlaylistChecker_PlaylistExists.executor": "Run",
+    "JUnit.TrackInPlayListServiceTest.testPlaylistChecker_PlaylistNotFound.executor": "Run",
     "JUnit.TrackMapperTest.executor": "Run",
     "JUnit.TrackMapperTest.testGetMultipleTracks.executor": "Run",
     "JUnit.TrackResourceTest.testGetAllTracksNotInPlaylist.executor": "Run",
     "JUnit.TrackServiceTest.executor": "Run",
     "JUnit.TrackServiceTest.testGetAllTracksNotInPlaylistMultipleTracks.executor": "Run",
     "JUnit.java in Spotitube.executor": "Coverage",
+    "JUnit.sutTest.testGetAllPlaylistsWithPlaytime.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -186,65 +205,47 @@
         <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
-    <configuration name="TrackInPlayListResourceTest.testAddTrackToPlaylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TokenMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.oose.han.resources.*" />
+          <option name="PATTERN" value="nl.oose.han.datalayer.dao.mappers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.TrackInPlayListResourceTest" />
-      <option name="METHOD_NAME" value="testAddTrackToPlaylist" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="nl.oose.han.datalayer.dao.mappers" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.datalayer.dao.mappers.TokenMapperTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrackInPlayListResourceTest.testDeleteTrackToPlaylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrackInPlayListServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.oose.han.resources.*" />
+          <option name="PATTERN" value="nl.oose.han.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.TrackInPlayListResourceTest" />
-      <option name="METHOD_NAME" value="testDeleteTrackToPlaylist" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.TrackInPlayListServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TrackInPlayListResourceTest.testGetTracksInPlaylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TrackInPlayListServiceTest.testGetAllPlaylistsWithPlaytime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="nl.oose.han.resources.*" />
+          <option name="PATTERN" value="nl.oose.han.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.TrackInPlayListResourceTest" />
-      <option name="METHOD_NAME" value="testGetTracksInPlaylist" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TrackInPlayListResourceTest.testGetTracksInPlaylist_EmptyPlaylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Spotitube" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="nl.oose.han.resources.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="nl.oose.han.resources" />
-      <option name="MAIN_CLASS_NAME" value="nl.oose.han.resources.TrackInPlayListResourceTest" />
-      <option name="METHOD_NAME" value="testGetTracksInPlaylist_EmptyPlaylist" />
+      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.TrackInPlayListServiceTest" />
+      <option name="METHOD_NAME" value="testGetAllPlaylistsWithPlaytime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -252,19 +253,57 @@
     </configuration>
     <configuration name="java in Spotitube" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Spotitube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nl.oose.han.datalayer.dao.daos.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="nl.oose.han.cors.*" />
+          <option name="ENABLED" value="true" />
+          <option name="INCLUDE" value="false" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sutTest.testGetAllPlaylistsWithPlaytime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Spotitube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nl.oose.han.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="nl.oose.han.services" />
+      <option name="MAIN_CLASS_NAME" value="nl.oose.han.services.sutTest" />
+      <option name="METHOD_NAME" value="testGetAllPlaylistsWithPlaytime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JBoss/WildFly Server.JBoss/WildFly 25.0.0.Final" />
+      <item itemvalue="JUnit.TokenMapperTest" />
+      <item itemvalue="JUnit.java in Spotitube" />
+      <item itemvalue="JUnit.sutTest.testGetAllPlaylistsWithPlaytime" />
+      <item itemvalue="JUnit.TrackInPlayListServiceTest" />
+      <item itemvalue="JUnit.TrackInPlayListServiceTest.testGetAllPlaylistsWithPlaytime" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.java in Spotitube" />
-        <item itemvalue="JUnit.TrackInPlayListResourceTest.testDeleteTrackToPlaylist" />
-        <item itemvalue="JUnit.TrackInPlayListResourceTest.testAddTrackToPlaylist" />
-        <item itemvalue="JUnit.TrackInPlayListResourceTest.testGetTracksInPlaylist_EmptyPlaylist" />
-        <item itemvalue="JUnit.TrackInPlayListResourceTest.testGetTracksInPlaylist" />
+        <item itemvalue="JUnit.TokenMapperTest" />
+        <item itemvalue="JUnit.TrackInPlayListServiceTest.testGetAllPlaylistsWithPlaytime" />
+        <item itemvalue="JUnit.TrackInPlayListServiceTest" />
+        <item itemvalue="JUnit.sutTest.testGetAllPlaylistsWithPlaytime" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +330,7 @@
       <workItem from="1741805404918" duration="12102000" />
       <workItem from="1742804755561" duration="15896000" />
       <workItem from="1742885380076" duration="39491000" />
-      <workItem from="1742975828410" duration="6532000" />
+      <workItem from="1742975828410" duration="13254000" />
     </task>
     <servers />
   </component>
@@ -302,7 +341,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/PlayListDAO.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/PlayListDAO.java</url>
           <line>41</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -323,7 +362,10 @@
     <SUITE FILE_PATH="coverage/Spotitube$LoginServiceTest.ic" NAME="LoginServiceTest Coverage Results" MODIFIED="1742930973101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>nl.oose.han.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Spotitube$java_in_Spotitube.ic" NAME="java in Spotitube Coverage Results" MODIFIED="1742982072175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/Spotitube$java_in_Spotitube.ic" NAME="java in Spotitube Coverage Results" MODIFIED="1742994589234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <EXCLUDED_FILTER>nl.oose.han.datalayer.dao.daos.*</EXCLUDED_FILTER>
+      <EXCLUDED_FILTER>nl.oose.han.cors.*</EXCLUDED_FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Spotitube$LoginMapperTest.ic" NAME="LoginMapperTest Coverage Results" MODIFIED="1742934371488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>nl.oose.han.datalayer.dao.mappers.*</FILTER>
     </SUITE>

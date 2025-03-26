@@ -1,4 +1,4 @@
-package nl.oose.han.datalayer.dao;
+package nl.oose.han.datalayer.dao.daos;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 @ApplicationScoped

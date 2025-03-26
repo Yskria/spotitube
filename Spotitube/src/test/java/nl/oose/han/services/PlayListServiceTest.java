@@ -52,6 +52,26 @@ public class PlayListServiceTest {
     }
 
     @Test
+    void testGetPlaylistsWithMultiplePlaylists() {
+        // Arrange
+        String token = "validToken";
+        List<PlayListDTO> playlists = new ArrayList<>();
+        playlists.add(new PlayListDTO());
+        playlists.add(new PlayListDTO());
+        int totalPlaytime = 200;
+
+        when(playListsDAO.getAll(token)).thenReturn(playlists);
+        when(trackInPlayListService.getAllPlaylistsWithPlaytime(token)).thenReturn(totalPlaytime);
+
+        // Act
+        PlayListsDTO result = sut.getPlaylists(token);
+
+        // Assert
+        assertEquals(playlists, result.getPlaylists());
+        assertEquals(totalPlaytime, result.getLength());
+    }
+
+    @Test
     void testDeletePlayList() {
         // Arrange
         int playlistId = 1;

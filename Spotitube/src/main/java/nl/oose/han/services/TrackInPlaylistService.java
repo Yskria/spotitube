@@ -32,7 +32,6 @@ public class TrackInPlaylistService implements iTrackInPlayListService {
 
     @Override
     public List<TrackDTO> addTrackToPlaylist(int playlistId, TrackDTO track, String token) {
-        playlistChecker(playlistId);
         boolean offlineAvailable = track.isOfflineAvailable();
         trackInPlayListDAO.addPlayTrackToPlayList(playlistId, track, token, offlineAvailable);
         return getAllSongsInPlaylist(playlistId, token);
@@ -40,7 +39,6 @@ public class TrackInPlaylistService implements iTrackInPlayListService {
 
     @Override
     public List<TrackDTO> deleteTrackFromPlaylist(int playlistId, int trackId, String token) {
-        playlistChecker(playlistId);
         trackInPlayListDAO.deleteTrackFromPlaylist(playlistId, trackId, token);
         return getAllSongsInPlaylist(playlistId, token);
     }

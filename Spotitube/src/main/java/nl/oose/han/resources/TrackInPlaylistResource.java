@@ -5,6 +5,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import nl.oose.han.datalayer.dto.TrackDTO;
+import nl.oose.han.datalayer.dto.TracksDTO;
 import nl.oose.han.services.TokenService;
 import nl.oose.han.services.TrackInPlaylistService;
 import nl.oose.han.services.serviceinterfaces.iTokenService;
@@ -29,9 +30,7 @@ public class TrackInPlaylistResource {
     public Response getTracksInPlaylist(@PathParam("forPlayList") int playlistId, @QueryParam("token") String token) {
         tokenService.validateToken(token);
         List<TrackDTO> tracks = trackInPlaylistService.getAllSongsInPlaylist(playlistId, token);
-        Map<String, List<TrackDTO>> response = new HashMap<>();
-        response.put("tracks", tracks);
-        return Response.ok(response).build();
+        return Response.ok(new TracksDTO(tracks)).build();
     }
 
     @POST

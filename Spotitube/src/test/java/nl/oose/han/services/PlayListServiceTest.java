@@ -106,5 +106,39 @@ public class PlayListServiceTest {
         assertEquals(playlists, result.getPlaylists());
     }
 
+    @Test
+    void testUpdatePlayListWithNonExistentPlaylist() {
+        // Arrange
+        String token = "validToken";
+        int playlistId = 1;
+        PlayListDTO playlist = new PlayListDTO();
+        List<PlayListDTO> playlists = new ArrayList<>();
+
+        when(playListsDAO.getAll(token)).thenReturn(playlists);
+
+        // Act
+        PlayListsDTO result = sut.updatePlayList(token, playlistId, playlist);
+
+        // Assert
+        verify(playListsDAO, times(1)).update(playlist, token);
+        assertEquals(playlists, result.getPlaylists());
+    }
+
+    @Test
+    void testAddPlayListWithNullPlaylist() {
+        // Arrange
+        String token = "validToken";
+        PlayListDTO playlist = null;
+        List<PlayListDTO> playlists = new ArrayList<>();
+
+        when(playListsDAO.getAll(token)).thenReturn(playlists);
+
+        // Act
+        PlayListsDTO result = sut.addPlayList(token, playlist);
+
+        // Assert
+        verify(playListsDAO, times(1)).add(playlist, token);
+        assertEquals(playlists, result.getPlaylists());
+    }
 }
 

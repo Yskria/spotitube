@@ -8,9 +8,7 @@ import jakarta.ws.rs.ext.Provider;
 public class TokenNotFoundExceptionMapper implements ExceptionMapper<TokenNotFoundException> {
     @Override
     public Response toResponse(TokenNotFoundException exception){
-        return Response.status(Response.Status.NOT_FOUND)
-                .entity("{\"error\": \"Token not found\", \"details\": \"" + exception.getMessage() + "\"}")
-                .build();
+        return Response.status(Response.Status.NOT_FOUND).entity("{\"error\": \"Token not found\", \"details\": \"" + exception.getMessage() + "\"}").build();
     }
 
 }

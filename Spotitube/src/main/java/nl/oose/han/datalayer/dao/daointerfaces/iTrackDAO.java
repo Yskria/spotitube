@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.dao.daointerfaces;
 
-import nl.oose.han.domain.dto.TrackDTO;
+import nl.oose.han.domain.TrackDTO;
 
 import java.util.List;
 

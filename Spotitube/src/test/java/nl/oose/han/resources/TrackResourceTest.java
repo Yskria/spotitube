@@ -1,8 +1,8 @@
 package nl.oose.han.resources;
 
 import jakarta.ws.rs.core.Response;
-import nl.oose.han.domain.dto.TrackDTO;
-import nl.oose.han.domain.dto.TracksDTO;
+import nl.oose.han.domain.TrackDTO;
+import nl.oose.han.domain.TracksDTO;
 import nl.oose.han.services.serviceinterfaces.iTokenService;
 import nl.oose.han.services.serviceinterfaces.iTrackService;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.mappers;
 
-import nl.oose.han.domain.dto.TrackDTO;
+import nl.oose.han.domain.TrackDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

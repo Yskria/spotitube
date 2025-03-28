@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.dao.daointerfaces;
 
-import nl.oose.han.domain.dto.PlayListDTO;
+import nl.oose.han.domain.PlayListDTO;
 
 import java.util.List;
 

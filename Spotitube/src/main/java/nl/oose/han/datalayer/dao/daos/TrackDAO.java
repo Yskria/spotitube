@@ -4,7 +4,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
-import nl.oose.han.domain.dto.TrackDTO;
+import nl.oose.han.domain.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TrackMapper;
 import nl.oose.han.services.exceptions.DatabaseConnectionException;

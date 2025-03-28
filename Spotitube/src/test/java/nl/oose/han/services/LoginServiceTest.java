@@ -2,6 +2,7 @@ package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
 import nl.oose.han.services.exceptions.TokenNotFoundException;
+import nl.oose.han.services.serviceclasses.LoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

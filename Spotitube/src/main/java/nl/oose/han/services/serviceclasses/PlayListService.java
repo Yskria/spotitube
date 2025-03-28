@@ -1,10 +1,10 @@
-package nl.oose.han.services;
+package nl.oose.han.services.serviceclasses;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.domain.dto.PlayListsDTO;
+import nl.oose.han.domain.PlayListsDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
-import nl.oose.han.domain.dto.PlayListDTO;
+import nl.oose.han.domain.PlayListDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 

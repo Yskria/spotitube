@@ -1,7 +1,7 @@
 package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
-import nl.oose.han.services.TokenService;
+import nl.oose.han.services.serviceclasses.TokenService;
 import nl.oose.han.services.exceptions.TokenUnauthorizedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

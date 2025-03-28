@@ -1,8 +1,8 @@
 package nl.oose.han.resources;
 
 import jakarta.ws.rs.core.Response;
-import nl.oose.han.domain.dto.LoginDTO;
-import nl.oose.han.domain.dto.UserDTO;
+import nl.oose.han.domain.LoginDTO;
+import nl.oose.han.domain.UserDTO;
 import nl.oose.han.services.serviceinterfaces.iLoginService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

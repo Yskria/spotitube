@@ -1,4 +1,4 @@
-package nl.oose.han.domain.dto;
+package nl.oose.han.domain;
 
 public class UserDTO {
     private String user;

@@ -4,7 +4,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
-import nl.oose.han.domain.dto.PlayListDTO;
+import nl.oose.han.domain.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
 import nl.oose.han.services.exceptions.DatabaseConnectionException;

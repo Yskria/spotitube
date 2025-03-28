@@ -1,8 +1,8 @@
 package nl.oose.han.resources;
 
 import jakarta.ws.rs.core.Response;
-import nl.oose.han.domain.dto.PlayListDTO;
-import nl.oose.han.domain.dto.PlayListsDTO;
+import nl.oose.han.domain.PlayListDTO;
+import nl.oose.han.domain.PlayListsDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
 import nl.oose.han.services.serviceinterfaces.iTokenService;
 import org.junit.jupiter.api.BeforeEach;

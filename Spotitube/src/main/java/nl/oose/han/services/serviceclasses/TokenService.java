@@ -1,4 +1,4 @@
-package nl.oose.han.services;
+package nl.oose.han.services.serviceclasses;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;

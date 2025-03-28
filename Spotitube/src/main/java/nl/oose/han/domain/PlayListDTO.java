@@ -1,4 +1,4 @@
-package nl.oose.han.domain.dto;
+package nl.oose.han.domain;
 
 import java.util.List;
 

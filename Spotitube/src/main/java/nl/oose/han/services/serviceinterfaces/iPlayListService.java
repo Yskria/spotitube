@@ -1,7 +1,7 @@
 package nl.oose.han.services.serviceinterfaces;
 
-import nl.oose.han.domain.dto.PlayListsDTO;
-import nl.oose.han.domain.dto.PlayListDTO;
+import nl.oose.han.domain.PlayListsDTO;
+import nl.oose.han.domain.PlayListDTO;
 
 public interface iPlayListService {
     PlayListsDTO getPlaylists(String token);

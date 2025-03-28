@@ -1,8 +1,9 @@
 package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
-import nl.oose.han.domain.dto.PlayListDTO;
-import nl.oose.han.domain.dto.PlayListsDTO;
+import nl.oose.han.domain.PlayListDTO;
+import nl.oose.han.domain.PlayListsDTO;
+import nl.oose.han.services.serviceclasses.PlayListService;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

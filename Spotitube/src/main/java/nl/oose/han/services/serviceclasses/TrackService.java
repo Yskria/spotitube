@@ -1,10 +1,10 @@
-package nl.oose.han.services;
+package nl.oose.han.services.serviceclasses;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.domain.dto.TracksDTO;
+import nl.oose.han.domain.TracksDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
-import nl.oose.han.domain.dto.TrackDTO;
+import nl.oose.han.domain.TrackDTO;
 import nl.oose.han.services.exceptions.TrackNotAvailableException;
 import nl.oose.han.services.serviceinterfaces.iTrackService;
 

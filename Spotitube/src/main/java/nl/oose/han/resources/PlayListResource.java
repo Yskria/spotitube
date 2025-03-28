@@ -4,7 +4,7 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import nl.oose.han.domain.dto.PlayListDTO;
+import nl.oose.han.domain.PlayListDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
 import nl.oose.han.services.serviceinterfaces.iTokenService;
 

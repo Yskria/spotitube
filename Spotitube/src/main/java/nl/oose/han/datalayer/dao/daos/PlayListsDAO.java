@@ -7,7 +7,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
 import nl.oose.han.domain.PlayListDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
-import nl.oose.han.services.exceptions.DatabaseConnectionException;
+import nl.oose.han.exceptions.exceptionclasses.DatabaseConnectionException;
 
 import java.sql.*;
 import java.util.ArrayList;

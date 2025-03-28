@@ -3,7 +3,7 @@ package nl.oose.han.services;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.domain.TrackDTO;
 import nl.oose.han.domain.TracksDTO;
-import nl.oose.han.services.exceptions.TrackNotAvailableException;
+import nl.oose.han.exceptions.exceptionclasses.TrackNotAvailableException;
 import nl.oose.han.services.serviceclasses.TrackService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,4 @@
-package nl.oose.han.services.exceptions;
-
-import jakarta.ws.rs.core.Response;
+package nl.oose.han.exceptions.exceptionclasses;
 
 public class TokenUnauthorizedException extends RuntimeException {
     public TokenUnauthorizedException(String message) {

@@ -6,7 +6,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iPlayListDAO;
 import nl.oose.han.domain.TrackDTO;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.mappers.TrackMapper;
-import nl.oose.han.services.exceptions.DatabaseConnectionException;
+import nl.oose.han.exceptions.exceptionclasses.DatabaseConnectionException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

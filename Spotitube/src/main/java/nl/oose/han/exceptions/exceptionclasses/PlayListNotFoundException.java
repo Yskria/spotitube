@@ -1,4 +1,4 @@
-package nl.oose.han.services.exceptions;
+package nl.oose.han.exceptions.exceptionclasses;
 
 public class PlayListNotFoundException extends RuntimeException {
     public PlayListNotFoundException(String message) {

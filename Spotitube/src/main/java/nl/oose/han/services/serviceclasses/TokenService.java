@@ -3,7 +3,7 @@ package nl.oose.han.services.serviceclasses;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.dao.daointerfaces.iTokenDAO;
-import nl.oose.han.services.exceptions.TokenUnauthorizedException;
+import nl.oose.han.exceptions.exceptionclasses.TokenUnauthorizedException;
 import nl.oose.han.services.serviceinterfaces.iTokenService;
 
 import java.util.Objects;

@@ -1,8 +1,9 @@
-package nl.oose.han.services.exceptions;
+package nl.oose.han.exceptions.exceptionmappers;
 
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
+import nl.oose.han.exceptions.exceptionclasses.TokenNotFoundException;
 
 @Provider
 public class TokenNotFoundExceptionMapper implements ExceptionMapper<TokenNotFoundException> {

@@ -7,7 +7,7 @@ import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackInPLayListDAO;
 import nl.oose.han.domain.PlayListDTO;
 import nl.oose.han.domain.TrackDTO;
-import nl.oose.han.services.exceptions.PlayListNotFoundException;
+import nl.oose.han.exceptions.exceptionclasses.PlayListNotFoundException;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 
 import java.util.List;

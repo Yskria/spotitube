@@ -5,7 +5,7 @@ import jakarta.inject.Inject;
 import nl.oose.han.domain.TracksDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
 import nl.oose.han.domain.TrackDTO;
-import nl.oose.han.services.exceptions.TrackNotAvailableException;
+import nl.oose.han.exceptions.exceptionclasses.TrackNotAvailableException;
 import nl.oose.han.services.serviceinterfaces.iTrackService;
 
 import java.util.List;

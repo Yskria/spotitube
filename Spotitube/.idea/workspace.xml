@@ -9,20 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="957dc666-2d72-43e7-ab6a-d945d00eb465" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/datalayer/dao/mappers/TokenMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/LoginDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/LoginDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/PlayListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/PlayListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/PlayListsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/PlayListsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TokenDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TokenDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TrackDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TrackDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/TrackInPlayListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/datalayer/dao/daos/TrackInPlayListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TokenService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackInPlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nl/oose/han/services/TrackInPlaylistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/PlayListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/PlayListServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/TrackInPlayListServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nl/oose/han/services/TrackInPlayListServiceTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="957dc666-2d72-43e7-ab6a-d945d00eb465" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -330,7 +317,7 @@
       <workItem from="1741805404918" duration="12102000" />
       <workItem from="1742804755561" duration="15896000" />
       <workItem from="1742885380076" duration="39491000" />
-      <workItem from="1742975828410" duration="13254000" />
+      <workItem from="1742975828410" duration="13278000" />
     </task>
     <servers />
   </component>

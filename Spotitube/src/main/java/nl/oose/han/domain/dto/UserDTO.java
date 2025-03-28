@@ -1,4 +1,4 @@
-package nl.oose.han.datalayer.dto;
+package nl.oose.han.domain.dto;
 
 public class UserDTO {
     private String user;

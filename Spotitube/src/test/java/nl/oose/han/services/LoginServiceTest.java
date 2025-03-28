@@ -1,7 +1,6 @@
 package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
-import nl.oose.han.datalayer.dto.LoginDTO;
 import nl.oose.han.services.exceptions.TokenNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

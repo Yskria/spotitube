@@ -4,7 +4,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import nl.oose.han.datalayer.DatabaseConnection;
 import nl.oose.han.datalayer.dao.daointerfaces.iLoginDAO;
-import nl.oose.han.datalayer.dto.UserDTO;
+import nl.oose.han.domain.dto.UserDTO;
 import nl.oose.han.datalayer.mappers.LoginMapper;
 import nl.oose.han.services.exceptions.DatabaseConnectionException;
 

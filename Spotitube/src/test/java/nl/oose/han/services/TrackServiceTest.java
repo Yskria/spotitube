@@ -1,9 +1,8 @@
 package nl.oose.han.services;
 
 import nl.oose.han.datalayer.dao.daointerfaces.iTrackDAO;
-import nl.oose.han.datalayer.dto.TrackDTO;
-import nl.oose.han.datalayer.dto.TracksDTO;
-import nl.oose.han.services.TrackService;
+import nl.oose.han.domain.dto.TrackDTO;
+import nl.oose.han.domain.dto.TracksDTO;
 import nl.oose.han.services.exceptions.TrackNotAvailableException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,7 +1,6 @@
 package nl.oose.han.datalayer.mappers;
 
-import nl.oose.han.datalayer.dto.PlayListDTO;
-import nl.oose.han.datalayer.dto.TrackDTO;
+import nl.oose.han.domain.dto.PlayListDTO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

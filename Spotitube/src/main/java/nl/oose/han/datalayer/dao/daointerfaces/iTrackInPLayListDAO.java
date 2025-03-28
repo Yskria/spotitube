@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.dao.daointerfaces;
 
-import nl.oose.han.datalayer.dto.TrackDTO;
+import nl.oose.han.domain.dto.TrackDTO;
 
 public interface iTrackInPLayListDAO {
     void addPlayTrackToPlayList(int playlistID, TrackDTO trackID, String token, boolean offlineAvailable);

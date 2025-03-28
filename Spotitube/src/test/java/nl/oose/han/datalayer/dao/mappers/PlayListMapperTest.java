@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.dao.mappers;
 
-import nl.oose.han.datalayer.dto.PlayListDTO;
+import nl.oose.han.domain.dto.PlayListDTO;
 import nl.oose.han.datalayer.mappers.PlayListsMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

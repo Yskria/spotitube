@@ -2,9 +2,9 @@ package nl.oose.han.services;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
-import nl.oose.han.datalayer.dto.PlayListsDTO;
+import nl.oose.han.domain.dto.PlayListsDTO;
 import nl.oose.han.datalayer.dao.daointerfaces.iPlayListsDAO;
-import nl.oose.han.datalayer.dto.PlayListDTO;
+import nl.oose.han.domain.dto.PlayListDTO;
 import nl.oose.han.services.serviceinterfaces.iPlayListService;
 import nl.oose.han.services.serviceinterfaces.iTrackInPlayListService;
 

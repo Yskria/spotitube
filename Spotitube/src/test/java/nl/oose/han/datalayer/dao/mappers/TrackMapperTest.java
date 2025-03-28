@@ -1,6 +1,6 @@
 package nl.oose.han.datalayer.dao.mappers;
 
-import nl.oose.han.datalayer.dto.TrackDTO;
+import nl.oose.han.domain.dto.TrackDTO;
 import nl.oose.han.datalayer.mappers.TrackMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
